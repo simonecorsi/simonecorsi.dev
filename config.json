@@ -1,0 +1,19 @@
+{
+  "base_url": "https://eloquent-kirch-7316f2.netlify.app/",
+  "site_title": "Simone Corsi",
+  "site_description": "Yet another software developer blog",
+  "site_keywords": [
+    {
+      "keyword": "Next.js"
+    },
+    {
+      "keyword": "Netlify"
+    },
+    {
+      "keyword": "React"
+    }
+  ],
+  "posts_per_page": 5,
+  "twitter_account": "@im_simonecorsi",
+  "github_account": "simonecorsi"
+}
