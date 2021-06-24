@@ -31,10 +31,3 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_APIKEY }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_ID }}
         timeout-minutes: 1
-
-      - name: send custom message with args
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: ${{ github.repository }} deployed 🚀
