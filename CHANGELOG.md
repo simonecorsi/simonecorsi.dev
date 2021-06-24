@@ -1,5 +1,12 @@
+## <small>0.1.4 (2021-06-24)</small>
+
+* feat: disable eslint ([48b0612](https://github.com/simonecorsi/simonecorsi.dev/commit/48b0612))
+
+
+
 ## <small>0.1.3 (2021-06-24)</small>
 
+* chore(release): v0.1.3 [skip ci] ([2ba601e](https://github.com/simonecorsi/simonecorsi.dev/commit/2ba601e))
 * feat: moving to npm ([969894d](https://github.com/simonecorsi/simonecorsi.dev/commit/969894d))
 
 
