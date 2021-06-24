@@ -1,16 +1,33 @@
 {
   "base_url": "https://eloquent-kirch-7316f2.netlify.app/",
-  "site_title": "Simone Corsi",
-  "site_description": "Yet another software developer blog",
+  "site_title": "Simone Corsi: Software Architect",
+  "site_description": "A sunny Italian guy, nearly decade old battle-tested and language agnostic Full Stack Developer but mainly focussed on Backend & DevOps side.",
   "site_keywords": [
     {
-      "keyword": "Next.js"
+      "keyword": "Simone Corsi"
     },
     {
-      "keyword": "Netlify"
+      "keyword": "Software"
     },
     {
-      "keyword": "React"
+      "keyword": "Engineer"
+    },
+    {
+      "keyword": "Backend"
+    },
+    {
+      "keyword": "DevOps"
+    },
+    {
+      "keyword": "Developer"
+    },
+    {
+      "keyword": "Full-stack"
+    },
+    {
+      "keyword": "Rome"
+    },{
+      "keyword": "Italy"
     }
   ],
   "posts_per_page": 5,

@@ -6,19 +6,25 @@ import got from 'got';
 import marked from 'marked';
 
 export async function getStaticProps() {
+  const cheerio = require('cheerio');
+
   const { body } = await got.get(
-    'https://raw.githubusercontent.com/simonecorsi/simonecorsi/main/README.md'
+    'https://raw.githubusercontent.com/simonecorsi/awesome/develop/README.md'
   );
-  return { props: { data: marked(body) } };
+  let data = marked(body);
+  const $ = cheerio.load(data);
+  $('h1').remove();
+  $('blockquote').remove();
+  return { props: { data: $.html() } };
 }
 
-export default function Index({ data }) {
+export default function Bookmarks({ data }) {
   return (
     <Layout>
-      <BasicMeta url={'/'} />
-      <OpenGraphMeta url={'/'} />
-      <TwitterCardMeta url={'/'} />
-      <div className="container">
+      <BasicMeta url={'/bookmarks'} />
+      <OpenGraphMeta url={'/bookmarks'} />
+      <TwitterCardMeta url={'/bookmarks'} />
+      <div className="container bookmarks">
         <div className="content" dangerouslySetInnerHTML={{ __html: data }} />
       </div>
     </Layout>
