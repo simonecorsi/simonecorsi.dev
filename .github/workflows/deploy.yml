@@ -13,8 +13,8 @@ jobs:
 
       - name: Build
         run: |
-          yarn
-          yarn export
+          npm ci
+          npm export
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
