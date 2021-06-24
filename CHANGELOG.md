@@ -1,5 +1,12 @@
+## <small>0.1.6 (2021-06-24)</small>
+
+* feat: gfont ([8ff6b25](https://github.com/simonecorsi/simonecorsi.dev/commit/8ff6b25))
+
+
+
 ## <small>0.1.5 (2021-06-24)</small>
 
+* chore(release): v0.1.5 [skip ci] ([202bbc5](https://github.com/simonecorsi/simonecorsi.dev/commit/202bbc5))
 * feat: better ci vuild ([a1720e2](https://github.com/simonecorsi/simonecorsi.dev/commit/a1720e2))
 
 
