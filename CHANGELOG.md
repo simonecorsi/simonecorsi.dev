@@ -1,5 +1,12 @@
+## <small>0.1.5 (2021-06-24)</small>
+
+* feat: better ci vuild ([a1720e2](https://github.com/simonecorsi/simonecorsi.dev/commit/a1720e2))
+
+
+
 ## <small>0.1.4 (2021-06-24)</small>
 
+* chore(release): v0.1.4 [skip ci] ([aba6540](https://github.com/simonecorsi/simonecorsi.dev/commit/aba6540))
 * feat: disable eslint ([48b0612](https://github.com/simonecorsi/simonecorsi.dev/commit/48b0612))
 
 
