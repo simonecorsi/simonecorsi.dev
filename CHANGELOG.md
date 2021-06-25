@@ -1,5 +1,12 @@
+## <small>0.1.8 (2021-06-25)</small>
+
+* fix: removing next img ([0d622d9](https://github.com/simonecorsi/simonecorsi.dev/commit/0d622d9))
+
+
+
 ## <small>0.1.7 (2021-06-25)</small>
 
+* chore(release): v0.1.7 [skip ci] ([79df056](https://github.com/simonecorsi/simonecorsi.dev/commit/79df056))
 * fix: added yesterdays fixs ([88ebc48](https://github.com/simonecorsi/simonecorsi.dev/commit/88ebc48))
 
 
@@ -22,13 +29,6 @@
 
 * chore(release): v0.1.4 [skip ci] ([aba6540](https://github.com/simonecorsi/simonecorsi.dev/commit/aba6540))
 * feat: disable eslint ([48b0612](https://github.com/simonecorsi/simonecorsi.dev/commit/48b0612))
-
-
-
-## <small>0.1.3 (2021-06-24)</small>
-
-* chore(release): v0.1.3 [skip ci] ([2ba601e](https://github.com/simonecorsi/simonecorsi.dev/commit/2ba601e))
-* feat: moving to npm ([969894d](https://github.com/simonecorsi/simonecorsi.dev/commit/969894d))
 
 
 
