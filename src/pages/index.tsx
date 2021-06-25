@@ -5,8 +5,6 @@ import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import { SocialList } from '../components/SocialList';
 import got from 'got';
 import React from 'react';
-import Image from 'next/image';
-import wave from '../../public/waves.gif';
 
 export async function getStaticProps() {
   const { body } = await got.get('https://api.github.com/users/simonecorsi', {
@@ -23,7 +21,7 @@ export default function Index({ user }) {
       <TwitterCardMeta url={'/'} />
       <div className="container home">
         <div style={{ textAlign: 'center' }}>
-          <Image
+          <img
             className="avatar"
             height="150px"
             width="150px"

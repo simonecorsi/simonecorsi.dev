@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next build && next export -o ./dist",
+    "push": "git fetch && git rebase origin/master && git push origin master",
     "test": "jest"
   },
   "dependencies": {

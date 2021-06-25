@@ -15,9 +15,9 @@ export async function getStaticProps() {
 export default function Index({ data }) {
   return (
     <Layout>
-      <BasicMeta url={'/'} />
-      <OpenGraphMeta url={'/'} />
-      <TwitterCardMeta url={'/'} />
+      <BasicMeta url={'/about.html'} />
+      <OpenGraphMeta url={'/about.html'} />
+      <TwitterCardMeta url={'/about.html'} />
       <div className="container">
         <div className="content" dangerouslySetInnerHTML={{ __html: data }} />
       </div>

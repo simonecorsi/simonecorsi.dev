@@ -21,9 +21,9 @@ export async function getStaticProps() {
 export default function Bookmarks({ data }) {
   return (
     <Layout>
-      <BasicMeta url={'/bookmarks'} />
-      <OpenGraphMeta url={'/bookmarks'} />
-      <TwitterCardMeta url={'/bookmarks'} />
+      <BasicMeta url={'/bookmarks.html'} />
+      <OpenGraphMeta url={'/bookmarks.html'} />
+      <TwitterCardMeta url={'/bookmarks.html'} />
       <div className="container bookmarks">
         <div className="content" dangerouslySetInnerHTML={{ __html: data }} />
       </div>
