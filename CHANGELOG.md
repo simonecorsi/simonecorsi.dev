@@ -1,5 +1,12 @@
+## <small>0.1.7 (2021-06-25)</small>
+
+* fix: added yesterdays fixs ([88ebc48](https://github.com/simonecorsi/simonecorsi.dev/commit/88ebc48))
+
+
+
 ## <small>0.1.6 (2021-06-24)</small>
 
+* chore(release): v0.1.6 [skip ci] ([70ee421](https://github.com/simonecorsi/simonecorsi.dev/commit/70ee421))
 * feat: gfont ([8ff6b25](https://github.com/simonecorsi/simonecorsi.dev/commit/8ff6b25))
 
 
@@ -22,16 +29,6 @@
 
 * chore(release): v0.1.3 [skip ci] ([2ba601e](https://github.com/simonecorsi/simonecorsi.dev/commit/2ba601e))
 * feat: moving to npm ([969894d](https://github.com/simonecorsi/simonecorsi.dev/commit/969894d))
-
-
-
-## <small>0.1.2 (2021-06-24)</small>
-
-* chore: init ([dcb6504](https://github.com/simonecorsi/simonecorsi.dev/commit/dcb6504))
-* chore(release): v0.1.2 [skip ci] ([ff9700f](https://github.com/simonecorsi/simonecorsi.dev/commit/ff9700f))
-* feat: added content ([73e4aca](https://github.com/simonecorsi/simonecorsi.dev/commit/73e4aca))
-* feat: added deploy ci ([bc606f6](https://github.com/simonecorsi/simonecorsi.dev/commit/bc606f6))
-* feat: update next ([b37015d](https://github.com/simonecorsi/simonecorsi.dev/commit/b37015d))
 
 
 
