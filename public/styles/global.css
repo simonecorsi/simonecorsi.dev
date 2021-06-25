@@ -15,9 +15,48 @@ body {
   transition: background ease-out .5s,color ease-out .5s;
 }
 
+body {
+  font-size: 14px;
+  line-height: 1.4;
+}
+h1 {
+  margin: 0;
+  font-weight: 600;
+}
+h2 {
+  font-weight: 300;
+  line-height: 1.25;
+  color: #9b9b9b;
+  letter-spacing: 0.05em;
+  margin: .25rem 0 1rem 0 ;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.75rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+@media (max-width: 759px)  {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+}
+
 /* #__next {
   height: 100%;
 } */
+
+li {
+  line-height: 1.5;
+}
 
 a {
   color: var(--white);
@@ -102,29 +141,9 @@ body.dark-mode {
 }
 .content {
   max-width: 75rem;
-  width: 75%;
+  width: 50%;
 }
-h1 {
-  font-size: 2.25rem;
-  margin: 0;
-  font-weight: 600;
-}
-h2 {
-  font-size: 1.125rem;
-  font-weight: 300;
-  line-height: 1.25;
-  color: #9b9b9b;
-  letter-spacing: 0.05em;
-  margin: .25rem 0 1rem 0 ;
-}
-@media (min-width: 769px) {
-  h1 {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 1.125rem;
-  }
-}
+
 .avatar{
   display: inline-block;
   overflow: hidden;
