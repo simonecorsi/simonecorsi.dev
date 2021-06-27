@@ -30,6 +30,17 @@ export default function Navigation() {
               </a>
             </Link>
           </li>
+          <li>
+            <Link href="/repositories">
+              <a
+                className={
+                  router.pathname === '/repositories' ? 'active' : null
+                }
+              >
+                repositories
+              </a>
+            </Link>
+          </li>
           {/* <li>
             <Link href="/posts">
               <a
