@@ -5,11 +5,18 @@ import { AppProps } from 'next/app';
 import '../../public/styles/global.css';
 import { DarkMode } from '../components/DarkMode';
 import useDarkMode from 'use-dark-mode';
+import Head from 'next/head';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <DarkMode useDarkMode={useDarkMode()}>
-      <Component {...pageProps} />
-    </DarkMode>
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <DarkMode useDarkMode={useDarkMode()}>
+        <Component {...pageProps} />
+      </DarkMode>
+    </>
   );
 }

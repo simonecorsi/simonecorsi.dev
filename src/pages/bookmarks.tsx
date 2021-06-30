@@ -7,14 +7,22 @@ import marked from 'marked';
 
 export async function getStaticProps() {
   const cheerio = require('cheerio');
+  const fs = await import('fs/promises');
+  let body;
 
-  const { body } = await got.get(
-    'https://raw.githubusercontent.com/simonecorsi/awesome/develop/README.md'
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    body = await fs.readFile('data/stars.md', 'utf-8');
+  } else {
+    body = await got.get(
+      'https://raw.githubusercontent.com/simonecorsi/awesome/develop/README.md'
+    );
+  }
+
   let data = marked(body);
   const $ = cheerio.load(data);
   $('h1').remove();
   $('blockquote').remove();
+
   return { props: { data: $.html() } };
 }
 

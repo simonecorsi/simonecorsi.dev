@@ -12,16 +12,21 @@ const filterFnc = (r) =>
   r.name !== 'simonecorsi.dev';
 
 export async function getStaticProps() {
-  const data: any[] = await got(
-    'https://api.github.com/users/simonecorsi/repos',
-    {
+  let data;
+
+  const fs = await import('fs/promises');
+
+  if (process.env.NODE_ENV !== 'production') {
+    data = JSON.parse(await fs.readFile('data/repos.json', 'utf-8'));
+  } else {
+    data = await got('https://api.github.com/users/simonecorsi/repos', {
       searchParams: {
         per_page: 100,
         page: 1,
         sort: 'updated',
       },
-    }
-  ).json();
+    }).json();
+  }
 
   return { props: { data: data.filter(filterFnc) } };
 }
