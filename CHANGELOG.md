@@ -1,5 +1,12 @@
+## <small>0.1.12 (2021-07-05)</small>
+
+* feat: added link to repositories ([4503dea](https://github.com/simonecorsi/simonecorsi.dev/commit/4503dea))
+
+
+
 ## <small>0.1.11 (2021-07-05)</small>
 
+* chore(release): v0.1.11 [skip ci] ([3088727](https://github.com/simonecorsi/simonecorsi.dev/commit/3088727))
 * feat: using token to avoid gh rate limit ([92eb6f3](https://github.com/simonecorsi/simonecorsi.dev/commit/92eb6f3))
 
 
@@ -24,13 +31,6 @@
 
 * chore(release): v0.1.8 [skip ci] ([f54318d](https://github.com/simonecorsi/simonecorsi.dev/commit/f54318d))
 * fix: removing next img ([0d622d9](https://github.com/simonecorsi/simonecorsi.dev/commit/0d622d9))
-
-
-
-## <small>0.1.7 (2021-06-25)</small>
-
-* chore(release): v0.1.7 [skip ci] ([79df056](https://github.com/simonecorsi/simonecorsi.dev/commit/79df056))
-* fix: added yesterdays fixs ([88ebc48](https://github.com/simonecorsi/simonecorsi.dev/commit/88ebc48))
 
 
 
