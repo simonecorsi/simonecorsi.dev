@@ -4,14 +4,13 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import got from 'got';
 import marked from 'marked';
+import fs from 'fs';
 
 export async function getStaticProps() {
   const cheerio = require('cheerio');
-  const fs = await import('fs/promises');
   let body;
-
   if (process.env.NODE_ENV !== 'production') {
-    body = await fs.readFile('data/stars.md', 'utf-8');
+    body = await fs.promises.readFile('data/stars.md', 'utf-8');
   } else {
     body = await got.get(
       'https://raw.githubusercontent.com/simonecorsi/awesome/develop/README.md'
@@ -32,7 +31,7 @@ export default function Bookmarks({ data }) {
       <BasicMeta url={'/bookmarks.html'} />
       <OpenGraphMeta url={'/bookmarks.html'} />
       <TwitterCardMeta url={'/bookmarks.html'} />
-      <div className="container bookmarks">
+      <div className="page-container bookmarks">
         <div className="content" dangerouslySetInnerHTML={{ __html: data }} />
       </div>
     </Layout>

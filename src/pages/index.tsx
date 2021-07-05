@@ -19,7 +19,7 @@ export default function Index({ user }) {
       <BasicMeta url={'/'} />
       <OpenGraphMeta url={'/'} />
       <TwitterCardMeta url={'/'} />
-      <div className="container home">
+      <div className="page-container home">
         <div style={{ textAlign: 'center' }}>
           <img
             className="avatar"

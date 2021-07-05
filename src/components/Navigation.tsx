@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Burger from './Burger';
 import { useState } from 'react';
 
 const routes = [
@@ -12,11 +11,15 @@ const routes = [
 
 export default function Navigation() {
   const router = useRouter();
-  const [active, setActive] = useState(false);
+  const [open, setopen] = useState(false);
   return (
-    <>
-      <Burger active={active} onClick={() => setActive(!active)} />
-      <div className={'nav-container ' + (active ? 'active' : '')}>
+    <nav className={`${open ? 'open' : ''} `}>
+      <div className="burger" onClick={() => setopen(!open)}>
+        <div className="meat-1" />
+        <div className="meat-2" />
+        <div className="meat-3" />
+      </div>
+      <div className={'nav-container ' + (open ? 'open' : '')}>
         <ul>
           {routes.map((route) => (
             <li key={route.label}>
@@ -29,6 +32,6 @@ export default function Navigation() {
           ))}
         </ul>
       </div>
-    </>
+    </nav>
   );
 }

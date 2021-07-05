@@ -4,13 +4,13 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import got from 'got';
 import marked from 'marked';
+import fs from 'fs';
 
 export async function getStaticProps() {
-  const fs = await import('fs/promises');
   let body;
 
   if (process.env.NODE_ENV !== 'production') {
-    body = await fs.readFile('data/about.md', 'utf-8');
+    body = await fs.promises.readFile('data/about.md', 'utf-8');
   } else {
     body = await got.get(
       'https://raw.githubusercontent.com/simonecorsi/simonecorsi/main/README.md'
@@ -26,7 +26,7 @@ export default function Index({ data }) {
       <BasicMeta url={'/about.html'} />
       <OpenGraphMeta url={'/about.html'} />
       <TwitterCardMeta url={'/about.html'} />
-      <div className="container">
+      <div className="page-container">
         <div className="content" dangerouslySetInnerHTML={{ __html: data }} />
       </div>
     </Layout>
