@@ -1,5 +1,12 @@
+## <small>0.1.11 (2021-07-05)</small>
+
+* feat: using token to avoid gh rate limit ([92eb6f3](https://github.com/simonecorsi/simonecorsi.dev/commit/92eb6f3))
+
+
+
 ## <small>0.1.10 (2021-07-05)</small>
 
+* chore(release): v0.1.10 [skip ci] ([9088e86](https://github.com/simonecorsi/simonecorsi.dev/commit/9088e86))
 * feat: using token to avoid gh rate limit ([b1f01cc](https://github.com/simonecorsi/simonecorsi.dev/commit/b1f01cc))
 
 
@@ -24,13 +31,6 @@
 
 * chore(release): v0.1.7 [skip ci] ([79df056](https://github.com/simonecorsi/simonecorsi.dev/commit/79df056))
 * fix: added yesterdays fixs ([88ebc48](https://github.com/simonecorsi/simonecorsi.dev/commit/88ebc48))
-
-
-
-## <small>0.1.6 (2021-06-24)</small>
-
-* chore(release): v0.1.6 [skip ci] ([70ee421](https://github.com/simonecorsi/simonecorsi.dev/commit/70ee421))
-* feat: gfont ([8ff6b25](https://github.com/simonecorsi/simonecorsi.dev/commit/8ff6b25))
 
 
 
