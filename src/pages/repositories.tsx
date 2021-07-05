@@ -95,8 +95,10 @@ export default function Bookmarks({ data }) {
         <div className="repos-list">
           {data.map((repo) => (
             <div className="repo">
-              <h3 className="name">{repo.full_name}</h3>
-              <i className="desc">{repo.description}</i>
+              <a href={repo.html_url} target="_blank">
+                <h3 className="name">{repo.full_name}</h3>
+                <i className="desc">{repo.description}</i>
+              </a>
               <LanguageList languages={repo.languages} />
             </div>
           ))}
