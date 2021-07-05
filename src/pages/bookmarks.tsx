@@ -2,9 +2,9 @@ import Layout from '../components/Layout';
 import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
-import got from 'got';
 import marked from 'marked';
 import fs from 'fs';
+import client from '../lib/client';
 
 export async function getStaticProps() {
   const cheerio = require('cheerio');
@@ -12,9 +12,10 @@ export async function getStaticProps() {
   if (process.env.NODE_ENV !== 'production') {
     body = await fs.promises.readFile('data/stars.md', 'utf-8');
   } else {
-    body = await got.get(
+    const response = await client.get(
       'https://raw.githubusercontent.com/simonecorsi/awesome/develop/README.md'
     );
+    body = response.body;
   }
 
   let data = marked(body);

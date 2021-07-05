@@ -13,6 +13,7 @@ jobs:
 
       - name: Build
         run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" > .env.local
           npm ci
           npm run build
           npm run export

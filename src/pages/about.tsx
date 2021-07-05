@@ -2,9 +2,9 @@ import Layout from '../components/Layout';
 import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
-import got from 'got';
 import marked from 'marked';
 import fs from 'fs';
+import client from '../lib/client';
 
 export async function getStaticProps() {
   let body;
@@ -12,9 +12,11 @@ export async function getStaticProps() {
   if (process.env.NODE_ENV !== 'production') {
     body = await fs.promises.readFile('data/about.md', 'utf-8');
   } else {
-    body = await got.get(
-      'https://raw.githubusercontent.com/simonecorsi/simonecorsi/main/README.md'
-    );
+    body = (
+      await client.get(
+        'https://raw.githubusercontent.com/simonecorsi/simonecorsi/main/README.md'
+      )
+    ).body;
   }
 
   return { props: { data: marked(body) } };

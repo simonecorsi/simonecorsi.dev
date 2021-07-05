@@ -3,13 +3,16 @@ import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import { SocialList } from '../components/SocialList';
-import got from 'got';
 import React from 'react';
+import client from '../lib/client';
 
 export async function getStaticProps() {
-  const { body } = await got.get('https://api.github.com/users/simonecorsi', {
-    responseType: 'json',
-  });
+  const { body } = await client.get(
+    'https://api.github.com/users/simonecorsi',
+    {
+      responseType: 'json',
+    }
+  );
   return { props: { user: body } };
 }
 

@@ -1,4 +1,3 @@
-import got from 'got';
 import fs from 'fs';
 import Layout from '../components/Layout';
 import BasicMeta from '../components/meta/BasicMeta';
@@ -6,6 +5,7 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 
 import colors from 'language-colors';
+import client from '../lib/client';
 
 const filterFnc = (r) =>
   !r.archived &&
@@ -20,7 +20,7 @@ export async function getStaticProps() {
   if (process.env.NODE_ENV !== 'production') {
     data = JSON.parse(await fs.promises.readFile('data/repos.json', 'utf-8'));
   } else {
-    data = await got('https://api.github.com/users/simonecorsi/repos', {
+    data = await client('https://api.github.com/users/simonecorsi/repos', {
       searchParams: {
         per_page: 100,
         page: 1,
@@ -30,7 +30,7 @@ export async function getStaticProps() {
 
     for (const repo of data) {
       if (repo.languages_url) {
-        repo.languages = await got(repo.languages_url).json();
+        repo.languages = await client(repo.languages_url).json();
       }
     }
   }
