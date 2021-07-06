@@ -5,7 +5,7 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 
 import colors from 'language-colors';
-import client from '../lib/client';
+import client, { githubApi } from '../lib/client';
 
 const filterFnc = (r) =>
   !r.archived &&
@@ -20,7 +20,7 @@ export async function getStaticProps() {
   if (process.env.NODE_ENV !== 'production') {
     data = JSON.parse(await fs.promises.readFile('data/repos.json', 'utf-8'));
   } else {
-    data = await client('https://api.github.com/users/simonecorsi/repos', {
+    data = await githubApi('users/simonecorsi/repos', {
       searchParams: {
         per_page: 100,
         page: 1,

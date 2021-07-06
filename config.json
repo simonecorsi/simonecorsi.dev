@@ -1,36 +1,32 @@
 {
-  "base_url": "https://eloquent-kirch-7316f2.netlify.app/",
-  "site_title": "Simone Corsi: Software Architect",
-  "site_description": "A sunny Italian guy, nearly decade old battle-tested and language agnostic Full Stack Developer but mainly focussed on Backend & DevOps side.",
+  "base_url": "https://simonecorsi.dev/",
+  "site_title": "Simone Corsi: Solution Architect",
+  "site_description": "I'm a sunny Italian guy, nearly decade old battle-tested and language agnostic Fullstack engineer mainly focussed on Backend & DevOps.",
   "site_keywords": [
-    {
-      "keyword": "Simone Corsi"
-    },
-    {
-      "keyword": "Software"
-    },
-    {
-      "keyword": "Engineer"
-    },
-    {
-      "keyword": "Backend"
-    },
-    {
-      "keyword": "DevOps"
-    },
-    {
-      "keyword": "Developer"
-    },
-    {
-      "keyword": "Full-stack"
-    },
-    {
-      "keyword": "Rome"
-    },{
-      "keyword": "Italy"
-    }
+    { "keyword": "Simone Corsi" },
+    { "keyword": "Solution Architect" },
+    { "keyword": "Software Engineer" },
+    { "keyword": "Software Developer" },
+    { "keyword": "DevOps" },
+    { "keyword": "Backend developer" },
+    { "keyword": "Fullstack developer" },
+    { "keyword": "Software" },
+    { "keyword": "Engineering" },
+    { "keyword": "Developer" },
+    { "keyword": "Fullstack" },
+    { "keyword": "Backend" },
+    { "keyword": "Frontend" },
+    { "keyword": "Node.js" },
+    { "keyword": "React.js" },
+    { "keyword": "Javascript" },
+    { "keyword": "Typescript" },
+    { "keyword": "Golang" },
+    { "keyword": "Consulenza" },
+    { "keyword": "Consultat" },
+    { "keyword": "Roma" },
+    { "keyword": "Italia" }
   ],
-  "posts_per_page": 5,
   "twitter_account": "@im_simonecorsi",
-  "github_account": "simonecorsi"
+  "github_account": "simonecorsi",
+  "linkedin": "/in/simonecorsi"
 }
