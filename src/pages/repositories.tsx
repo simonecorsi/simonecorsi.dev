@@ -41,7 +41,6 @@ export async function getStaticProps() {
 }
 
 const LanguageList = ({ languages }) => {
-  console.log('languages :>> ', languages);
   if (!Object.keys(languages).length) return null;
 
   const total: number = Object.values(languages).reduce(
@@ -58,7 +57,7 @@ const LanguageList = ({ languages }) => {
 
   return (
     <div className="lang-map">
-      <h6 className="title">Languages</h6>
+      <h3 className="title">Languages</h3>
       <div className="lang-bars">
         {parsed.map(([lang, percent]: [string, number]) => (
           <div
