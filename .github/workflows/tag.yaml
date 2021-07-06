@@ -23,6 +23,7 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v2
         with:
+          preset: "conventionalcommits"
           github-token: ${{ secrets.GH_PESONAL_TOKEN }}
           git-message: "chore(release): {version} [skip ci]"
           preset: ""
