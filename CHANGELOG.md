@@ -1,5 +1,12 @@
+## <small>0.1.13 (2021-07-06)</small>
+
+* ci: rebuild at midnight everyday ([baa0e3f](https://github.com/simonecorsi/simonecorsi.dev/commit/baa0e3f))
+
+
+
 ## <small>0.1.12 (2021-07-05)</small>
 
+* chore(release): v0.1.12 [skip ci] ([2de0937](https://github.com/simonecorsi/simonecorsi.dev/commit/2de0937))
 * feat: added link to repositories ([4503dea](https://github.com/simonecorsi/simonecorsi.dev/commit/4503dea))
 
 
@@ -24,13 +31,6 @@
 * chore: cleanup ([966a967](https://github.com/simonecorsi/simonecorsi.dev/commit/966a967))
 * chore(release): v0.1.9 [skip ci] ([f050b6d](https://github.com/simonecorsi/simonecorsi.dev/commit/f050b6d))
 * feat: refactored and added pages ([3f9bbc6](https://github.com/simonecorsi/simonecorsi.dev/commit/3f9bbc6))
-
-
-
-## <small>0.1.8 (2021-06-25)</small>
-
-* chore(release): v0.1.8 [skip ci] ([f54318d](https://github.com/simonecorsi/simonecorsi.dev/commit/f54318d))
-* fix: removing next img ([0d622d9](https://github.com/simonecorsi/simonecorsi.dev/commit/0d622d9))
 
 
 
