@@ -1,5 +1,12 @@
+## <small>0.1.14 (2021-07-06)</small>
+
+* ci: using github token ([a8646a7](https://github.com/simonecorsi/simonecorsi.dev/commit/a8646a7))
+
+
+
 ## <small>0.1.13 (2021-07-06)</small>
 
+* chore(release): v0.1.13 [skip ci] ([255ee31](https://github.com/simonecorsi/simonecorsi.dev/commit/255ee31))
 * ci: rebuild at midnight everyday ([baa0e3f](https://github.com/simonecorsi/simonecorsi.dev/commit/baa0e3f))
 
 
@@ -22,15 +29,6 @@
 
 * chore(release): v0.1.10 [skip ci] ([9088e86](https://github.com/simonecorsi/simonecorsi.dev/commit/9088e86))
 * feat: using token to avoid gh rate limit ([b1f01cc](https://github.com/simonecorsi/simonecorsi.dev/commit/b1f01cc))
-
-
-
-## <small>0.1.9 (2021-07-05)</small>
-
-* chore: anv ([69d84d6](https://github.com/simonecorsi/simonecorsi.dev/commit/69d84d6))
-* chore: cleanup ([966a967](https://github.com/simonecorsi/simonecorsi.dev/commit/966a967))
-* chore(release): v0.1.9 [skip ci] ([f050b6d](https://github.com/simonecorsi/simonecorsi.dev/commit/f050b6d))
-* feat: refactored and added pages ([3f9bbc6](https://github.com/simonecorsi/simonecorsi.dev/commit/3f9bbc6))
 
 
 
