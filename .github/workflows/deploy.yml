@@ -2,6 +2,9 @@ name: Build and Deploy to Netlify
 
 # When workflow is triggered
 on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
   release:
     types: [published]
 
