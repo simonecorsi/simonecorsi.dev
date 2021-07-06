@@ -26,7 +26,6 @@ jobs:
           preset: "conventionalcommits"
           github-token: ${{ secrets.GH_PESONAL_TOKEN }}
           git-message: "chore(release): {version} [skip ci]"
-          preset: ""
 
       - name: Create github Release
         uses: actions/create-release@v1
