@@ -39,9 +39,3 @@ jobs:
 
       - name: Latest tag
         uses: EndBug/latest-tag@v1.4.0
-
-      - uses: everlytic/branch-merge@1.1.0
-        with:
-          github_token: ${{ secrets.GH_PESONAL_TOKEN }}
-          source_ref: ${{ github.ref }}
-          target_branch: "develop"
