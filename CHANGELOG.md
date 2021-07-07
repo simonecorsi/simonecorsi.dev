@@ -1,3 +1,10 @@
+## [0.2.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.1.16...v0.2.0) (2021-07-07)
+
+
+### Features
+
+* changed ci preset ([575401e](https://github.com/simonecorsi/simonecorsi.dev/commit/575401e9835a5f58e8f15a603c9baee7d013b25e))
+
 ### [0.1.16](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.1.15...v0.1.16) (2021-07-06)
 
 
@@ -15,11 +22,4 @@
 ### [0.1.14](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.1.13...v0.1.14) (2021-07-06)
 
 ### [0.1.13](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.1.12...v0.1.13) (2021-07-06)
-
-### [0.1.12](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.1.11...v0.1.12) (2021-07-05)
-
-
-### Features
-
-* added link to repositories ([4503dea](https://github.com/simonecorsi/simonecorsi.dev/commit/4503deaf1999e1a8509fe23ac12545dd9a4f9b30))
 
