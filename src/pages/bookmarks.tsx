@@ -2,38 +2,90 @@ import Layout from '../components/Layout';
 import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
-import marked from 'marked';
 import fs from 'fs';
 import client from '../lib/client';
+import { useState } from 'react';
+import colors from 'language-colors';
 
 export async function getStaticProps() {
-  const cheerio = require('cheerio');
   let body;
   if (process.env.NODE_ENV !== 'production') {
-    body = await fs.promises.readFile('data/stars.md', 'utf-8');
+    body = JSON.parse(await fs.promises.readFile('data/stars.json', 'utf-8'));
   } else {
     const response = await client.get(
-      'https://raw.githubusercontent.com/simonecorsi/awesome/develop/README.md'
+      'https://github.com/simonecorsi/awesome/blob/develop/data.json'
     );
     body = response.body;
   }
 
-  let data = marked(body);
-  const $ = cheerio.load(data);
-  $('h1').remove();
-  $('blockquote').remove();
-
-  return { props: { data: $.html() } };
+  return { props: { languages: Object.keys(body), data: body } };
 }
 
-export default function Bookmarks({ data }) {
+export default function Bookmarks({ languages, data }) {
+  const [useLang, setLang] = useState(null);
+
+  const repositories = !useLang
+    ? languages.reduce((acc, lang) => {
+        return [...acc, ...data[lang]];
+      }, [])
+    : data[useLang];
+
+  console.log('reposi :>> ', repositories.length, repositories[0]);
   return (
     <Layout>
       <BasicMeta url={'/bookmarks.html'} />
       <OpenGraphMeta url={'/bookmarks.html'} />
       <TwitterCardMeta url={'/bookmarks.html'} />
       <div className="page-container bookmarks">
-        <div className="content" dangerouslySetInnerHTML={{ __html: data }} />
+        <div className="content">
+          <h2>{useLang || ''} Bookmarks</h2>
+          <p>
+            This is a collection of all the repositories I've starred over the
+            time! The list is automatically updated every night! If you would
+            like to have your personal list you can use my{' '}
+            <a
+              href="https://github.com/marketplace/actions/my-awesome-list"
+              target="_blank"
+            >
+              github action
+            </a>
+            !
+          </p>
+          <h4 style={{ marginBottom: 0 }}>Filter by language:</h4>
+          <div>
+            {languages.map((l) => (
+              <span
+                style={{
+                  marginRight: 5,
+                  fontWeight: useLang === l ? 'bold' : 'lighter',
+                }}
+              >
+                <a
+                  href={`#${l}`}
+                  onClick={() => setLang(l)}
+                  style={{
+                    color: useLang === l ? colors[l.toLowerCase()] : 'inherit',
+                  }}
+                >
+                  {l}
+                </a>
+              </span>
+            ))}
+          </div>
+          <h4 style={{ marginBottom: 0 }}>Repositories:</h4>
+          <div>
+            {
+              <ul>
+                {repositories.map((repo) => (
+                  <li>
+                    <a href={repo.html_url}>{repo.full_name}</a> -{' '}
+                    {repo.description}
+                  </li>
+                ))}
+              </ul>
+            }
+          </div>
+        </div>
       </div>
     </Layout>
   );

@@ -4,10 +4,10 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import { SocialList } from '../components/SocialList';
 import React from 'react';
-import client from '../lib/client';
+import { githubWeb } from '../lib/client';
 
 export async function getStaticProps() {
-  const { body } = await client.get(
+  const { body } = await githubWeb.get(
     'https://api.github.com/users/simonecorsi',
     {
       responseType: 'json',

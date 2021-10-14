@@ -5,7 +5,7 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 
 import colors from 'language-colors';
-import client, { githubApi } from '../lib/client';
+import { githubWeb, githubApi } from '../lib/client';
 
 const filterFnc = (r) =>
   !r.archived &&
@@ -28,14 +28,13 @@ export async function getStaticProps() {
       },
     }).json();
 
+    // don't parallelize to avoid rate limit
     for (const repo of data) {
       if (repo.languages_url) {
-        repo.languages = await client(repo.languages_url).json();
+        repo.languages = await githubWeb(repo.languages_url).json();
       }
     }
   }
-
-  // don't parallelize to avoid rate limit
 
   return { props: { data: data.filter(filterFnc) } };
 }
@@ -56,6 +55,9 @@ const LanguageList = ({ languages }) => {
   ]);
 
   return (
+    <BasicMeta url={'/about.html'} />
+      <OpenGraphMeta url={'/about.html'} />
+      <TwitterCardMeta url={'/about.html'} />
     <div className="lang-map">
       <h3 className="title">Languages</h3>
       <div className="lang-bars">

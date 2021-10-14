@@ -4,20 +4,14 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import marked from 'marked';
 import fs from 'fs';
-import client from '../lib/client';
+import { githubWeb } from '../lib/client';
 
 export async function getStaticProps() {
-  let body;
-
-  if (process.env.NODE_ENV !== 'production') {
-    body = await fs.promises.readFile('data/about.md', 'utf-8');
-  } else {
-    body = (
-      await client.get(
-        'https://raw.githubusercontent.com/simonecorsi/simonecorsi/main/README.md'
-      )
-    ).body;
-  }
+  const body = (
+    await githubWeb.get(
+      'https://raw.githubusercontent.com/simonecorsi/simonecorsi/main/README.md'
+    )
+  ).body;
 
   return { props: { data: marked(body) } };
 }
