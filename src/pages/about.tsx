@@ -3,7 +3,6 @@ import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import marked from 'marked';
-import fs from 'fs';
 import { githubWeb } from '../lib/client';
 
 export async function getStaticProps() {

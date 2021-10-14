@@ -55,9 +55,6 @@ const LanguageList = ({ languages }) => {
   ]);
 
   return (
-    <BasicMeta url={'/about.html'} />
-      <OpenGraphMeta url={'/about.html'} />
-      <TwitterCardMeta url={'/about.html'} />
     <div className="lang-map">
       <h3 className="title">Languages</h3>
       <div className="lang-bars">
