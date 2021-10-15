@@ -8,15 +8,10 @@ import { useState } from 'react';
 import colors from 'language-colors';
 
 export async function getStaticProps() {
-  let body;
-  if (process.env.NODE_ENV !== 'production') {
-    body = JSON.parse(await fs.promises.readFile('data/stars.json', 'utf-8'));
-  } else {
-    const response = await client.get(
-      'https://github.com/simonecorsi/awesome/blob/develop/data.json'
-    );
-    body = response.body;
-  }
+  const response = await client.get(
+    'https://raw.githubusercontent.com/simonecorsi/awesome/develop/data.json'
+  );
+  const body = JSON.parse(response.body);
 
   return { props: { languages: Object.keys(body), data: body } };
 }
@@ -30,12 +25,11 @@ export default function Bookmarks({ languages, data }) {
       }, [])
     : data[useLang];
 
-  console.log('reposi :>> ', repositories.length, repositories[0]);
   return (
     <Layout>
-      <BasicMeta url={'/bookmarks.html'} />
-      <OpenGraphMeta url={'/bookmarks.html'} />
-      <TwitterCardMeta url={'/bookmarks.html'} />
+      <BasicMeta url={'/bookmarks'} />
+      <OpenGraphMeta url={'/bookmarks'} />
+      <TwitterCardMeta url={'/bookmarks'} />
       <div className="page-container bookmarks">
         <div className="content">
           <h2>{useLang || ''} Bookmarks</h2>
@@ -55,6 +49,7 @@ export default function Bookmarks({ languages, data }) {
           <div>
             {languages.map((l) => (
               <span
+                key={l}
                 style={{
                   marginRight: 5,
                   fontWeight: useLang === l ? 'bold' : 'lighter',
@@ -77,7 +72,7 @@ export default function Bookmarks({ languages, data }) {
             {
               <ul>
                 {repositories.map((repo) => (
-                  <li>
+                  <li key={repo.id}>
                     <a href={repo.html_url}>{repo.full_name}</a> -{' '}
                     {repo.description}
                   </li>
