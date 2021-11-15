@@ -26,14 +26,17 @@ export default function Index({ user }) {
         <div style={{ textAlign: 'center' }}>
           <img
             className="avatar"
-            height="150px"
-            width="150px"
             src={user.avatar_url}
             alt={`Avatar of ${user.name}`}
           />
           <h1>Hi, I'm {user.name}</h1>
           <h2>
-            {user.company} <br /> {user.location}
+            {user.bio.split('|').map((p) => (
+              <>
+                {p}
+                <br />
+              </>
+            ))}
           </h2>
           <SocialList user={user} />
         </div>

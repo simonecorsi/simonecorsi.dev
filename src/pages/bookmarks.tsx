@@ -16,14 +16,15 @@ export async function getStaticProps() {
   return { props: { languages: Object.keys(body), data: body } };
 }
 
+const all = (data, languages) =>
+  languages.reduce((acc, lang) => {
+    return [...acc, ...data[lang]];
+  }, []);
+
 export default function Bookmarks({ languages, data }) {
   const [useLang, setLang] = useState(null);
 
-  const repositories = !useLang
-    ? languages.reduce((acc, lang) => {
-        return [...acc, ...data[lang]];
-      }, [])
-    : data[useLang];
+  const repositories = !useLang ? all(data, languages) : data[useLang];
 
   return (
     <Layout>
@@ -47,6 +48,16 @@ export default function Bookmarks({ languages, data }) {
           </p>
           <h4 style={{ marginBottom: 0 }}>Filter by language:</h4>
           <div>
+            <span
+              style={{
+                marginRight: 5,
+                fontWeight: useLang === null ? 'bold' : 'lighter',
+              }}
+            >
+              <a href={`#all`} onClick={() => setLang(null)}>
+                All
+              </a>
+            </span>
             {languages.map((l) => (
               <span
                 key={l}
@@ -67,7 +78,9 @@ export default function Bookmarks({ languages, data }) {
               </span>
             ))}
           </div>
-          <h4 style={{ marginBottom: 0 }}>Repositories:</h4>
+          <h4 style={{ marginBottom: 0 }}>
+            Repositories <i>({repositories.length})</i> :
+          </h4>
           <div>
             {
               <ul>

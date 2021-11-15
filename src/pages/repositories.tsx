@@ -14,6 +14,11 @@ const filterFnc = (r) =>
   r.id !== 315016385 &&
   r.name !== 'simonecorsi.dev';
 
+const excerpt = (str = '') =>
+  typeof str === 'string' && str.length >= 140
+    ? str.substring(0, 140) + ' [...]'
+    : str;
+
 export async function getStaticProps() {
   let data;
 
@@ -60,6 +65,7 @@ const LanguageList = ({ languages }) => {
       <div className="lang-bars">
         {parsed.map(([lang, percent]: [string, number]) => (
           <div
+            key={lang}
             className="bar"
             style={{
               width: `${percent}%`,
@@ -68,17 +74,15 @@ const LanguageList = ({ languages }) => {
           ></div>
         ))}
       </div>
-      <ul>
-        {parsed.map(([lang]: [string]) => (
-          <li>
-            <span
-              className="dot"
-              style={{ background: colors[lang.toLowerCase()] }}
-            ></span>
-            {lang}
-          </li>
-        ))}
-      </ul>
+      {parsed.map(([lang]: [string]) => (
+        <span className="lang-wrp" key={lang}>
+          <span
+            className="dot"
+            style={{ background: colors[lang.toLowerCase()] }}
+          ></span>
+          <span className="lang">{lang}</span>
+        </span>
+      ))}
     </div>
   );
 };
@@ -91,13 +95,13 @@ export default function Bookmarks({ data }) {
       <TwitterCardMeta url={'/repositories.html'} />
       <div className="page-container repositories">
         <div className="repos-list">
-          {data.map((repo) => (
-            <div className="repo">
-              <a href={repo.html_url} target="_blank">
-                <h3 className="name">{repo.full_name}</h3>
-                <i className="desc">{repo.description}</i>
+          {data.map((r) => (
+            <div className="repo" key={r.full_name}>
+              <a href={r.html_url} target="_blank">
+                <h3 className="name">{r.full_name}</h3>
+                <i className="desc">{excerpt(r.description)}</i>
               </a>
-              <LanguageList languages={repo.languages} />
+              <LanguageList languages={r.languages} />
             </div>
           ))}
         </div>

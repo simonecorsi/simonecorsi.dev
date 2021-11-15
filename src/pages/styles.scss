@@ -151,7 +151,7 @@ body.dark-mode {
   border-radius: 6px;
   box-shadow: 0 0 0 1px var(--color-avatar-border);
   border-radius: 50% !important;
-  max-width: 150px;
+  max-width: 200px;
   width: 100%;
   border: 5px solid white;
 }
@@ -359,7 +359,19 @@ body.dark-mode {
 
   .repo {
     width: 18rem;
-    margin: 3rem;
+    margin: 1.5rem;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    body.dark-mode & {
+      background: #333;
+    }
+
+    body.light-mode & {
+      background: #fefefe;
+    }
   }
 
   .name {
@@ -383,22 +395,20 @@ body.dark-mode {
         height: 5px;
       }
     }
-  
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-  
-      li {
-        line-height: 1.6;
-        .dot {
-          display: inline-block;
-          margin-right: 5px;
-          height: 5px;
-          width: 5px;
-          border-radius: 5px;
-        }
+
+    .lang-wrp {
+      .lang {
+        margin-right: 10px;
       }
+      .dot {
+        display: inline-block;
+        margin-right: 5px;
+        height: 5px;
+        width: 5px;
+        border-radius: 5px;
+      }
+
     }
+
   }
 }
