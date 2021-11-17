@@ -72,7 +72,7 @@ a {
   transition: color 0.3s ease;
 }
 
-a:active,
+a[data-active="true"],
 a:hover {
   opacity: .5;
 }
@@ -183,7 +183,7 @@ body.dark-mode {
   transition: transform 0.25s ease-in-out;
   display: flex;
 
-  &.open {
+  &[data-open="true"] {
     transform: translate(0%);
   }
 
@@ -212,10 +212,8 @@ body.dark-mode {
     li {
       margin-bottom: 2rem;
 
-      a {
-        &.active {
-          font-weight: bold;
-        }
+      a[data-active="true"] {
+        font-weight: bold;
       }
 
       body.dark-mode & a {
@@ -267,7 +265,7 @@ body.dark-mode {
     background: var(--white);
   }
 
-  body.dark-mode .open & {
+  body.dark-mode [data-open="true"] & {
     background: var(--black);
   }
 
@@ -275,7 +273,7 @@ body.dark-mode {
     background: var(--black);
   }
 
-  body.light-mode .open & {
+  body.light-mode [data-open="true"] & {
     background: var(--white);
   }
 
@@ -291,7 +289,7 @@ body.dark-mode {
 
   &.meat-1 {
     transform: translateY(-10px);
-    .open & {
+    [data-open="true"] & {
       transform: rotate(45deg);
     }
   }
@@ -299,7 +297,7 @@ body.dark-mode {
   &.meat-2 {
     width: calc(28px - 6px);
 
-    .open & {
+    [data-open="true"] & {
       opacity: 0;
     }
   }
@@ -307,7 +305,7 @@ body.dark-mode {
   &.meat-3 {
     transform: translateY(10px);
 
-    .open & {
+    [data-open="true"] & {
       transform: rotate(-45deg);
     }
   }

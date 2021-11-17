@@ -1,30 +1,31 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import config from '../lib/config';
 
-const routes = [
-  { path: '/', label: 'home' },
-  { path: '/about', label: 'about' },
-  { path: '/bookmarks', label: 'bookmarks' },
-  { path: '/repositories', label: 'repositories' },
-];
+const removeSlash = (str) => str.replace(/\//g, '');
+function isActivePath(path: string, currentPath: string) {
+  if (typeof path !== 'string' || typeof currentPath !== 'string') return false;
+  console.log('object :>> ', removeSlash(path), removeSlash(currentPath));
+  return removeSlash(path) === removeSlash(currentPath);
+}
 
 export default function Navigation() {
   const router = useRouter();
   const [open, setopen] = useState(false);
   return (
-    <nav className={`${open ? 'open' : ''} `}>
+    <nav data-open={Boolean(open)}>
       <div className="burger" onClick={() => setopen(!open)}>
         <div className="meat-1" />
         <div className="meat-2" />
         <div className="meat-3" />
       </div>
-      <div className={'nav-container ' + (open ? 'open' : '')}>
+      <div className="nav-container" data-open={Boolean(open)}>
         <ul>
-          {routes.map((route) => (
+          {config.routes.map((route) => (
             <li key={route.label}>
               <Link href={route.path}>
-                <a className={router.pathname === route.path ? 'active' : ''}>
+                <a data-active={isActivePath(router.pathname, route.path)}>
                   {route.label}
                 </a>
               </Link>

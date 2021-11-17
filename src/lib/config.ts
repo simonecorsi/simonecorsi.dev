@@ -8,6 +8,7 @@ type Config = {
   readonly twitter_account: string;
   readonly github_account: string;
   readonly linkedin: string;
+  readonly routes: { path: string; label: string }[];
 };
 
 export default config as Config;
