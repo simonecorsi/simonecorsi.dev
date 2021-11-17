@@ -151,9 +151,16 @@ body.dark-mode {
   border-radius: 6px;
   box-shadow: 0 0 0 1px var(--color-avatar-border);
   border-radius: 50% !important;
-  max-width: 200px;
+  max-width: 175px;
   width: 100%;
-  border: 5px solid white;
+  margin-bottom: 2rem;
+  
+  body.dark-mode & {
+    border: 5px solid var(--white);
+  }
+  body.light-mode & {
+    border: 5px solid var(--black);
+  }
 }
 
 .dm-toggle {
@@ -312,6 +319,7 @@ body.dark-mode {
 }
 
 .socials {
+  margin-top: 2.5rem;
   svg {
     body.dark-mode & {
       fill: var(--white);
