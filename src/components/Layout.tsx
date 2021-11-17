@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import Navigation from './Navigation';
+import Navigation from './Navigation/Index';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 import useDarkMode from 'use-dark-mode';
 
 type Props = {
