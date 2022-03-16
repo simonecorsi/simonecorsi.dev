@@ -1,6 +1,6 @@
 {
   "base_url": "https://simonecorsi.dev",
-  "site_title": "Simone Corsi: Software Engineer | Solution Architect",
+  "site_title": "Simone Corsi: Solution Architect | DX | Software Engineer",
   "site_description": "I'm a sunny Italian guy, nearly decade old battle-tested and language agnostic Fullstack engineer mainly focussed on Backend & DevOps.",
   "site_keywords": [
     { "keyword": "Simone Corsi" },
@@ -28,10 +28,15 @@
   ],
   "twitter_account": "@im_simonecorsi",
   "github_account": "simonecorsi",
-  "linkedin": "/in/simonecorsi",
+  "linkedin_account": "/in/simonecorsi",
   "routes": [
     { "path": "/", "label": "home" },
     { "path": "/about/", "label": "about" },
+    {
+      "path": "https://www.linkedin.com/in/simonecorsi/",
+      "label": "resume",
+      "blank": true
+    },
     { "path": "/bookmarks/", "label": "bookmarks" },
     { "path": "/repositories/", "label": "repositories" }
   ]

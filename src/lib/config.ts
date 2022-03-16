@@ -7,8 +7,12 @@ type Config = {
   readonly site_keywords: { keyword: string }[];
   readonly twitter_account: string;
   readonly github_account: string;
-  readonly linkedin: string;
-  readonly routes: { path: string; label: string }[];
+  readonly linkedin_account: string;
+  readonly routes: {
+    path: string;
+    label: string;
+    blank: boolean | undefined;
+  }[];
 };
 
 export default config as Config;

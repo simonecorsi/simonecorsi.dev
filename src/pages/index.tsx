@@ -5,10 +5,11 @@ import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import { SocialList } from '../components/SocialList';
 import React from 'react';
 import { githubWeb } from '../lib/client';
+import config from 'lib/config';
 
 export async function getStaticProps() {
   const { body } = await githubWeb.get(
-    'https://api.github.com/users/simonecorsi',
+    `https://api.github.com/users/${config.github_account}`,
     {
       responseType: 'json',
     }

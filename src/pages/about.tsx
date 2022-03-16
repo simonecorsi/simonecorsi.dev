@@ -4,11 +4,12 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import marked from 'marked';
 import { githubWeb } from '../lib/client';
+import config from 'lib/config';
 
 export async function getStaticProps() {
   const body = (
     await githubWeb.get(
-      'https://raw.githubusercontent.com/simonecorsi/simonecorsi/main/README.md'
+      `https://raw.githubusercontent.com/${config.github_account}/${config.github_account}/main/README.md`
     )
   ).body;
 

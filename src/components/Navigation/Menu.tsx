@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type config from 'lib/config';
 
 const removeSlash = (str) => str.replace(/\//g, '');
 function isActivePath(path: string, currentPath: string) {
@@ -6,10 +7,7 @@ function isActivePath(path: string, currentPath: string) {
   return removeSlash(path) === removeSlash(currentPath);
 }
 
-type MenuItem = {
-  label: string;
-  path: string;
-};
+type MenuItem = typeof config.routes[number];
 
 export function MenuItem({
   route,
@@ -21,7 +19,12 @@ export function MenuItem({
   return (
     <li key={route.label}>
       <Link href={route.path}>
-        <a data-active={isActive()}>{route.label}</a>
+        <a
+          data-active={isActive()}
+          {...(route.blank ? { target: '_blank' } : {})}
+        >
+          {route.label}
+        </a>
       </Link>
     </li>
   );

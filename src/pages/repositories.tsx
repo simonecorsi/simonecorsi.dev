@@ -3,11 +3,13 @@ import Layout from '../components/Layout';
 import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
+import config from 'lib/config';
+config.github_account;
 
 import colors from 'language-colors';
 import { githubWeb, githubApi } from '../lib/client';
 
-const filterFnc = (r) =>
+const excludeRepo = (r) =>
   !r.archived &&
   !r.disabled &&
   !r.fork &&
@@ -25,9 +27,9 @@ export async function getStaticProps() {
   if (process.env.NODE_ENV !== 'production') {
     data = JSON.parse(await fs.promises.readFile('data/repos.json', 'utf-8'));
   } else {
-    data = await githubApi('users/simonecorsi/repos', {
+    data = await githubApi(`users/${config.github_account}/repos`, {
       searchParams: {
-        per_page: 100,
+        per_page: 200,
         page: 1,
         sort: 'updated',
       },
@@ -41,7 +43,7 @@ export async function getStaticProps() {
     }
   }
 
-  return { props: { data: data.filter(filterFnc) } };
+  return { props: { data: data.filter(excludeRepo) } };
 }
 
 const LanguageList = ({ languages }) => {

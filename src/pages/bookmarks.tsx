@@ -2,14 +2,14 @@ import Layout from '../components/Layout';
 import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
-import fs from 'fs';
 import client from '../lib/client';
 import { useState } from 'react';
 import colors from 'language-colors';
+import config from 'lib/config';
 
 export async function getStaticProps() {
   const response = await client.get(
-    'https://raw.githubusercontent.com/simonecorsi/awesome/develop/data.json'
+    `https://raw.githubusercontent.com/${config.github_account}/awesome/develop/data.json`
   );
   const body = JSON.parse(response.body);
 
