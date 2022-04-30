@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@octokit/graphql": "^4.8.0",
     "language-colors": "^1.184.0",
     "next": "^12.1.5",
     "react": "^18.1.0",
@@ -32,8 +33,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "gh-star-fetch": "^1.0.0-next.2",
-    "got": "^11.8.0",
+    "got": "^12.0.4",
     "jest": "^26.3.0",
     "marked": "^2.1.2",
     "next-sitemap": "^1.6.133",

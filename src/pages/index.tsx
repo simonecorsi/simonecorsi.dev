@@ -6,19 +6,36 @@ import { SocialList } from '../components/SocialList';
 import React from 'react';
 import { githubWeb } from '../lib/client';
 import config from 'lib/config';
+import { graphql } from '@octokit/graphql';
 
 export async function getStaticProps() {
-  const { body } = await githubWeb.get(
-    `https://api.github.com/users/${config.github_account}`,
+  const response = (await graphql(
+    `
+      {
+        viewer {
+          id
+          login
+          name
+          avatarUrl
+          bio
+          company
+          companyHTML
+          twitterUsername
+        }
+      }
+    `,
     {
-      responseType: 'json',
+      headers: {
+        authorization: `token ` + process.env.GH_APIKEY,
+      },
     }
-  );
-  return { props: { user: body } };
+  )) as any;
+
+  return { props: { user: response.viewer } };
 }
 
 export default function Index({ user }) {
-  const { bio, name, avatar_url } = user;
+  const { bio, name, avatarUrl, companyHTML, login, twitterUsername } = user;
   return (
     <Layout>
       <BasicMeta url={'/'} />
@@ -26,17 +43,11 @@ export default function Index({ user }) {
       <TwitterCardMeta url={'/'} />
       <div className="page-container home">
         <div>
-          <img className="avatar" src={avatar_url} alt={`Avatar of ${name}`} />
+          <img className="avatar" src={avatarUrl} alt={`Avatar of ${name}`} />
           <h1>Hi, I'm {name}</h1>
-          <h2>
-            {bio.split('|').map((p, i) => (
-              <React.Fragment key={i}>
-                {p}
-                <br />
-              </React.Fragment>
-            ))}
-          </h2>
-          <SocialList user={user} />
+          <h2>{bio}</h2>
+          <span dangerouslySetInnerHTML={{ __html: companyHTML }} />
+          <SocialList login={login} twitterUsername={twitterUsername} />
         </div>
       </div>
     </Layout>

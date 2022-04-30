@@ -7,13 +7,15 @@ import { useState } from 'react';
 import colors from 'language-colors';
 import config from 'lib/config';
 
+let RESPONSE_CACHE = null; // this is of develop reloads
 export async function getStaticProps() {
+  if (RESPONSE_CACHE) return RESPONSE_CACHE;
   const response = await client.get(
     `https://raw.githubusercontent.com/${config.github_account}/awesome/develop/data.json`
   );
   const body = JSON.parse(response.body);
-
-  return { props: { languages: Object.keys(body), data: body } };
+  RESPONSE_CACHE = { props: { languages: Object.keys(body), data: body } };
+  return RESPONSE_CACHE;
 }
 
 const all = (data, languages) =>

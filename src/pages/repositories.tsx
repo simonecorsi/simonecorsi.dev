@@ -3,17 +3,19 @@ import Layout from '../components/Layout';
 import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
-import config from 'lib/config';
 
 import colors from 'language-colors';
-import { githubWeb, githubApi } from '../lib/client';
+import { graphql } from '@octokit/graphql';
 
-const excludeRepo = (r) =>
-  !r.archived &&
-  !r.disabled &&
-  !r.fork &&
-  r.id !== 315016385 &&
-  r.name !== 'simonecorsi.dev';
+const excludeRepo = ({ node }) => {
+  return (
+    !node.archived &&
+    !node.disabled &&
+    !node.fork &&
+    node.id !== 315016385 &&
+    node.name !== 'simonecorsi.dev'
+  );
+};
 
 const excerpt = (str = '') =>
   typeof str === 'string' && str.length >= 140
@@ -21,74 +23,73 @@ const excerpt = (str = '') =>
     : str;
 
 export async function getStaticProps() {
-  let data;
+  let data = [];
 
   if (process.env.NODE_ENV !== 'production') {
-    data = JSON.parse(await fs.promises.readFile('data/repos.json', 'utf-8'));
+    data = JSON.parse(await fs.promises.readFile('./data/repos.json', 'utf8'));
   } else {
-    data = await githubApi(`users/${config.github_account}/repos`, {
-      searchParams: {
-        per_page: 200,
-        page: 1,
-        sort: 'updated',
+    ({
+      viewer: {
+        repositories: { edges: data },
       },
-    }).json();
-
-    // don't parallelize to avoid rate limit
-    for (const repo of data) {
-      if (repo.languages_url) {
-        repo.languages = await githubWeb(repo.languages_url).json();
+    } = await graphql({
+      query: `
+      {
+        viewer {
+          repositories(
+            orderBy: { field: STARGAZERS, direction: DESC }
+            privacy: PUBLIC
+            first: 100
+          ) {
+            edges {
+              node {
+                id,
+                name,
+                description,
+                nameWithOwner,
+                stargazerCount,
+                url,
+                isArchived,
+                isDisabled,
+                isFork,	
+                primaryLanguage {
+                  name
+                }
+              }
+            }
+          }
+        }
       }
-    }
+    `,
+      headers: {
+        authorization: `token ` + process.env.GH_APIKEY,
+      },
+    }));
   }
 
   return { props: { data: data.filter(excludeRepo) } };
 }
 
-const LanguageList = ({ languages }) => {
-  if (!Object.keys(languages).length) return null;
-
-  const total: number = Object.values(languages).reduce(
-    (acc: number, v: number): number => acc + v,
-    0
-  ) as number;
-
-  const parsed = Object.entries(
-    languages
-  ).map(([key, value]: [string, number]) => [
-    key,
-    Math.round((value / total) * 100),
-  ]);
-
+const InfoList = ({ language, stargazers_count }) => {
   return (
-    <div className="lang-map">
-      <h3 className="title">Languages</h3>
-      <div className="lang-bars">
-        {parsed.map(([lang, percent]: [string, number]) => (
-          <div
-            key={lang}
-            className="bar"
-            style={{
-              width: `${percent}%`,
-              background: colors[lang.toLowerCase()],
-            }}
-          ></div>
-        ))}
-      </div>
-      {parsed.map(([lang]: [string]) => (
-        <span className="lang-wrp" key={lang}>
+    <div className="info-list">
+      {!!stargazers_count && (
+        <span className="starcount">☆ {stargazers_count}</span>
+      )}
+      {!!language && (
+        <span className="lang-wrp" key={language}>
           <span
             className="dot"
-            style={{ background: colors[lang.toLowerCase()] }}
+            style={{ background: colors[language.toLowerCase()] }}
           ></span>
-          <span className="lang">{lang}</span>
+          <span className="lang">{language}</span>
         </span>
-      ))}
+      )}
     </div>
   );
 };
 
-export default function Bookmarks({ data }) {
+export default function Repositories({ data }) {
   return (
     <Layout>
       <BasicMeta url={'/repositories.html'} />
@@ -97,13 +98,16 @@ export default function Bookmarks({ data }) {
       <div className="page-container repositories">
         <div className="content">
           <div className="repositories-list">
-            {data.map((r) => (
-              <div className="repository-card" key={r.full_name}>
-                <a href={r.html_url} target="_blank">
-                  <h3 className="name">{r.full_name}</h3>
-                  <i className="desc">{excerpt(r.description)}</i>
+            {data.map(({ node }) => (
+              <div className="repository-card" key={node.nameWithOwner}>
+                <a href={node.url} target="_blank">
+                  <h3 className="name">{node.nameWithOwner}</h3>
+                  <div className="desc">{excerpt(node.description)}</div>
                 </a>
-                <LanguageList languages={r.languages} />
+                <InfoList
+                  language={node.primaryLanguage?.name}
+                  stargazers_count={node.stargazerCount}
+                />
               </div>
             ))}
           </div>

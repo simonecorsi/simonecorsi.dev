@@ -5,14 +5,14 @@ import GitHub from '../assets/github-alt.svg';
 import { darkModeContext } from './DarkMode';
 import { DarkMode } from 'use-dark-mode';
 
-export function SocialList({ user }) {
+export function SocialList({ twitterUsername, login }) {
   const dm = useContext(darkModeContext) as DarkMode;
   return (
     <div className="socials">
-      {user?.twitter_username && (
+      {twitterUsername && (
         <a
           title="Twitter"
-          href={`https://twitter.com/${user.twitter_username}`}
+          href={`https://twitter.com/${twitterUsername}`}
           target="_blank"
           rel="noopener"
         >
@@ -23,10 +23,10 @@ export function SocialList({ user }) {
           />
         </a>
       )}
-      {user?.login && (
+      {login && (
         <a
           title="GitHub"
-          href={`https://github.com/${user.login}`}
+          href={`https://github.com/${login}`}
           target="_blank"
           rel="noopener"
         >
