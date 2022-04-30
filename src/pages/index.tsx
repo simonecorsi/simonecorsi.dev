@@ -18,25 +18,22 @@ export async function getStaticProps() {
 }
 
 export default function Index({ user }) {
+  const { bio, name, avatar_url } = user;
   return (
     <Layout>
       <BasicMeta url={'/'} />
       <OpenGraphMeta url={'/'} />
       <TwitterCardMeta url={'/'} />
       <div className="page-container home">
-        <div style={{ textAlign: 'center' }}>
-          <img
-            className="avatar"
-            src={user.avatar_url}
-            alt={`Avatar of ${user.name}`}
-          />
-          <h1>Hi, I'm {user.name}</h1>
+        <div>
+          <img className="avatar" src={avatar_url} alt={`Avatar of ${name}`} />
+          <h1>Hi, I'm {name}</h1>
           <h2>
-            {user.bio.split('|').map((p) => (
-              <>
+            {bio.split('|').map((p, i) => (
+              <React.Fragment key={i}>
                 {p}
                 <br />
-              </>
+              </React.Fragment>
             ))}
           </h2>
           <SocialList user={user} />

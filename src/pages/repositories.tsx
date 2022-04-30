@@ -4,7 +4,6 @@ import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import config from 'lib/config';
-config.github_account;
 
 import colors from 'language-colors';
 import { githubWeb, githubApi } from '../lib/client';
@@ -96,16 +95,18 @@ export default function Bookmarks({ data }) {
       <OpenGraphMeta url={'/repositories.html'} />
       <TwitterCardMeta url={'/repositories.html'} />
       <div className="page-container repositories">
-        <div className="repos-list">
-          {data.map((r) => (
-            <div className="repo" key={r.full_name}>
-              <a href={r.html_url} target="_blank">
-                <h3 className="name">{r.full_name}</h3>
-                <i className="desc">{excerpt(r.description)}</i>
-              </a>
-              <LanguageList languages={r.languages} />
-            </div>
-          ))}
+        <div className="content">
+          <div className="repositories-list">
+            {data.map((r) => (
+              <div className="repository-card" key={r.full_name}>
+                <a href={r.html_url} target="_blank">
+                  <h3 className="name">{r.full_name}</h3>
+                  <i className="desc">{excerpt(r.description)}</i>
+                </a>
+                <LanguageList languages={r.languages} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Layout>
