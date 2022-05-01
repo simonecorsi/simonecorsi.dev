@@ -13,7 +13,7 @@ export async function getStaticProps() {
   return { props: { avatar, user } };
 }
 
-const Wave = ({ name }) => <h1>Hi, I am {name}</h1>;
+const Wave = ({ name }) => <h1>{name}</h1>;
 const Bio = ({ bio }) => <h2>{bio}</h2>;
 const Avatar = ({ name, avatar }) => (
   <img

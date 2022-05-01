@@ -12,7 +12,7 @@
 
 html,
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Karla', sans-serif;
   background-color: var(--white);
   color: var(--black);
   font-weight: 200;
@@ -205,9 +205,9 @@ body.dark-mode {
     li {
       margin-bottom: 2rem;
 
-      a[data-active='true'] {
-        font-weight: bold;
-      }
+      // a[data-active='true'] {
+      //   font-weight: bold;
+      // }
 
       body.dark-mode & a {
         color: var(--black);
@@ -372,17 +372,17 @@ body.dark-mode {
     font-weight: normal;
     &:hover {
       opacity: 0.5;
-      transition: opacity .25s ease-out;
+      transition: opacity 0.25s ease-out;
     }
   }
 
   .desc {
     font-style: italic;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 
   .starcount {
-    font-size: .85rem;
+    font-size: 0.85rem;
     display: inline-block;
     margin-right: 1rem;
   }
@@ -410,7 +410,6 @@ body.dark-mode {
 
     .lang-wrp {
       .lang {
-
       }
       .dot {
         display: inline-block;
@@ -423,17 +422,16 @@ body.dark-mode {
   }
 }
 
-
 .pill {
-  margin-left: .5rem ;
+  margin-left: 0.5rem;
   position: relative;
-  font-size: .6rem;
-  padding: .15rem .5rem;
-  top: -.15rem;
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  top: -0.15rem;
   border-radius: 1rem;
   display: inline-block;
   border: 1px solid;
-  
+
   body.dark-mode & {
     border-color: var(--white);
   }

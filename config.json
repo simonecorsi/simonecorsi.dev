@@ -32,12 +32,12 @@
   "routes": [
     { "path": "/", "label": "home" },
     { "path": "/about/", "label": "about" },
+    { "path": "/repositories/", "label": "repositories" },
+    { "path": "/bookmarks/", "label": "bookmarks" },
     {
       "path": "https://www.linkedin.com/in/simonecorsi/",
       "label": "resume",
       "blank": true
-    },
-    { "path": "/bookmarks/", "label": "bookmarks" },
-    { "path": "/repositories/", "label": "repositories" }
+    }
   ]
 }

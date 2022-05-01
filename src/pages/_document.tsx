@@ -12,7 +12,7 @@ class MyDocument extends Document {
             crossOrigin="true"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Karla:wght@300;500&display=swap"
             rel="stylesheet"
           />
           <link rel="manifest" href="/site.webmanifest" />
@@ -23,7 +23,6 @@ class MyDocument extends Document {
           ></link>
         </Head>
         <body>
-          <script src="/noflash.js" />
           <Main />
           <NextScript />
         </body>
