@@ -4,7 +4,6 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import { SocialList } from '../components/SocialList';
 import React from 'react';
-import Img from 'next/image';
 import { getBase64Avatar, getUserDetails } from 'lib/github-graphql';
 import { proxyCache } from 'lib/cache';
 
@@ -14,24 +13,29 @@ export async function getStaticProps() {
   return { props: { avatar, user } };
 }
 
+const Wave = ({ name }) => <h1>Hi, I am {name}</h1>;
+const Bio = ({ bio }) => <h2>{bio}</h2>;
+const Avatar = ({ name, avatar }) => (
+  <img
+    className="avatar"
+    src={avatar}
+    alt={`Avatar of ${name}`}
+    width="150px"
+    height="150px"
+  />
+);
+
 export default function Index({ user, avatar }) {
-  const { bio, name } = user;
   return (
     <Layout>
       <BasicMeta url={'/'} />
       <OpenGraphMeta url={'/'} />
       <TwitterCardMeta url={'/'} />
       <div className="page-container home">
-        <div>
-          <Img
-            className="avatar"
-            src={avatar}
-            alt={`Avatar of ${name}`}
-            width={150}
-            height={150}
-          />
-          <h1>Hi, I'm {name}</h1>
-          <h2>{bio}</h2>
+        <div className="content">
+          <Avatar name={user.name} avatar={avatar} />
+          <Wave {...user} />
+          <Bio {...user} />
           {/* <span dangerouslySetInnerHTML={{ __html: companyHTML }} /> */}
           <SocialList {...user} />
         </div>
