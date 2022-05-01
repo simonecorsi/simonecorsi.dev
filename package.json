@@ -26,6 +26,7 @@
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
     "cheerio": "^1.0.0-rc.10",
+    "dayjs": "^1.11.1",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",

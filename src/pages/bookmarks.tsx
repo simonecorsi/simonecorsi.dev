@@ -30,9 +30,9 @@ export default function Bookmarks({ languages, data }) {
 
   return (
     <Layout>
-      <BasicMeta url={'/bookmarks'} />
-      <OpenGraphMeta url={'/bookmarks'} />
-      <TwitterCardMeta url={'/bookmarks'} />
+      <BasicMeta url={'/bookmarks/'} />
+      <OpenGraphMeta url={'/bookmarks/'} />
+      <TwitterCardMeta url={'/bookmarks/'} />
       <div className="page-container bookmarks">
         <div className="content">
           <h2>{useLang || ''} Bookmarks</h2>

@@ -4,38 +4,16 @@ import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import { SocialList } from '../components/SocialList';
 import React from 'react';
-import { githubWeb } from '../lib/client';
-import config from 'lib/config';
-import { graphql } from '@octokit/graphql';
+import Img from 'next/image';
+import { getBase64Avatar, getUserDetails } from 'lib/github-graphql';
 
 export async function getStaticProps() {
-  const response = (await graphql(
-    `
-      {
-        viewer {
-          id
-          login
-          name
-          avatarUrl
-          bio
-          company
-          companyHTML
-          twitterUsername
-        }
-      }
-    `,
-    {
-      headers: {
-        authorization: `token ` + process.env.GH_APIKEY,
-      },
-    }
-  )) as any;
-
-  return { props: { user: response.viewer } };
+  const avatar = await getBase64Avatar();
+  return { props: { avatar, user: await getUserDetails() } };
 }
 
-export default function Index({ user }) {
-  const { bio, name, avatarUrl, companyHTML, login, twitterUsername } = user;
+export default function Index({ user, avatar }) {
+  const { bio, name, slogin, twitterUsername } = user;
   return (
     <Layout>
       <BasicMeta url={'/'} />
@@ -43,11 +21,17 @@ export default function Index({ user }) {
       <TwitterCardMeta url={'/'} />
       <div className="page-container home">
         <div>
-          <img className="avatar" src={avatarUrl} alt={`Avatar of ${name}`} />
+          <Img
+            className="avatar"
+            src={avatar}
+            alt={`Avatar of ${name}`}
+            width={150}
+            height={150}
+          />
           <h1>Hi, I'm {name}</h1>
           <h2>{bio}</h2>
-          <span dangerouslySetInnerHTML={{ __html: companyHTML }} />
-          <SocialList login={login} twitterUsername={twitterUsername} />
+          {/* <span dangerouslySetInnerHTML={{ __html: companyHTML }} /> */}
+          <SocialList {...user} />
         </div>
       </div>
     </Layout>

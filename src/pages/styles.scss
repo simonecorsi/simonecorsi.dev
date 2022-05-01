@@ -392,6 +392,10 @@ body.dark-mode {
     font-size: 0.8rem;
     margin-top: 1rem;
 
+    & > span {
+      margin-right: 1rem;
+    }
+
     .title {
       font-size: 0.8rem;
       margin: 0;
@@ -407,7 +411,7 @@ body.dark-mode {
 
     .lang-wrp {
       .lang {
-        margin-right: 1rem;
+
       }
       .dot {
         display: inline-block;
@@ -417,5 +421,25 @@ body.dark-mode {
         border-radius: 0.75rem;
       }
     }
+  }
+}
+
+
+.pill {
+  margin-left: .5rem ;
+  position: relative;
+  font-size: .6rem;
+  padding: .15rem .5rem;
+  top: -.15rem;
+  border-radius: 1rem;
+  display: inline-block;
+  border: 1px solid;
+  
+  body.dark-mode & {
+    border-color: var(--white);
+  }
+
+  body.light-mode & {
+    border-color: var(--dark-grey);
   }
 }
