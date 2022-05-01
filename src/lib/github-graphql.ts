@@ -156,11 +156,6 @@ export const getUserDetails = async (): Promise<Partial<UserDefails>> => {
     }
   );
 
-  if (viewer.avatarUrl) {
-    const { body } = await got.get(viewer.avatarUrl);
-    console.log(body);
-  }
-
   return viewer;
 };
 
@@ -179,9 +174,7 @@ export const getBase64Avatar = async (): Promise<string> => {
   );
 
   if (viewer.avatarUrl) {
-    console.log(viewer.avatarUrl);
     const { headers, rawBody } = await got.get(viewer.avatarUrl);
-    console.log('rawBody :>> ', rawBody);
     return `data:${headers['content-type']};base64,${Buffer.from(
       rawBody
     ).toString('base64')}`;
