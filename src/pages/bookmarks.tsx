@@ -2,31 +2,37 @@ import Layout from '../components/Layout';
 import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
-import client from '../lib/client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import colors from 'language-colors';
-import config from 'lib/config';
+import { proxyCache } from 'lib/cache';
+import { stars } from 'lib/github-graphql';
 
-let RESPONSE_CACHE = null; // this is of develop reloads
 export async function getStaticProps() {
-  if (RESPONSE_CACHE) return RESPONSE_CACHE;
-  const response = await client.get(
-    `https://raw.githubusercontent.com/${config.github_account}/awesome/develop/data.json`
-  );
-  const body = JSON.parse(response.body);
-  RESPONSE_CACHE = { props: { languages: Object.keys(body), data: body } };
-  return RESPONSE_CACHE;
-}
+  const body = await proxyCache('stars', stars);
 
-const all = (data, languages) =>
-  languages.reduce((acc, lang) => {
-    return [...acc, ...data[lang]];
-  }, []);
+  return {
+    props: {
+      languages: Array.from(
+        new Set(body.map((r) => r?.primaryLanguage?.name).filter(Boolean))
+      ),
+      data: body,
+    },
+  };
+}
 
 export default function Bookmarks({ languages, data }) {
   const [useLang, setLang] = useState(null);
+  const [useRepos, setRepos] = useState(data);
 
-  const repositories = !useLang ? all(data, languages) : data[useLang];
+  useEffect(() => {
+    if (!useLang) setRepos(data);
+    else
+      setRepos(
+        data.filter((r) =>
+          r?.primaryLanguage?.name.match(new RegExp(useLang, 'i'))
+        )
+      );
+  }, [useLang]);
 
   return (
     <Layout>
@@ -81,14 +87,14 @@ export default function Bookmarks({ languages, data }) {
             ))}
           </div>
           <h4 style={{ marginBottom: 0 }}>
-            Repositories <i>({repositories.length})</i> :
+            Repositories <i>({useRepos.length})</i> :
           </h4>
           <div>
             {
               <ul>
-                {repositories.map((repo) => (
+                {useRepos.map((repo) => (
                   <li key={repo.id}>
-                    <a href={repo.html_url}>{repo.full_name}</a> -{' '}
+                    <a href={repo.url}>{repo.nameWithOwner}</a> -{' '}
                     {repo.description}
                   </li>
                 ))}

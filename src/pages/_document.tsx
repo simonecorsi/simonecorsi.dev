@@ -12,7 +12,7 @@ class MyDocument extends Document {
             crossOrigin="true"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&display=swap"
             rel="stylesheet"
           />
           <link rel="manifest" href="/site.webmanifest" />

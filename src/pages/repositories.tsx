@@ -8,9 +8,13 @@ import {
   Repository as RepositoryType,
 } from 'lib/github-graphql';
 import { Repository } from 'components/Repository';
+import { proxyCache } from 'lib/cache';
 
 export async function getStaticProps() {
-  let repositories: RepositoryType[] = await getUserRepositories();
+  let repositories: RepositoryType[] = await proxyCache(
+    'repositories',
+    getUserRepositories
+  );
 
   return { props: { repositories } };
 }

@@ -49,13 +49,6 @@ export type Repository = Partial<{
 }>;
 
 export const getUserRepositories = async (): Promise<Repository[]> => {
-  if (process.env.NODE_ENV !== 'production') {
-    const fs = await import('fs');
-    return JSON.parse(
-      await fs.promises.readFile('./data/repos.json', { encoding: 'utf-8' })
-    );
-  }
-
   const {
     viewer: {
       repositories: { nodes },
@@ -115,14 +108,6 @@ export const getUserRepositories = async (): Promise<Repository[]> => {
     }))
     .filter(excludeRepo);
 
-  // if (process.env.NODE_ENV !== 'production') {
-  //   const fs = await import('fs');
-  //   await fs.promises.writeFile(
-  //     './data/repos.json',
-  //     JSON.stringify(repositories)
-  //   );
-  // }
-
   return repositories;
 };
 
@@ -181,4 +166,50 @@ export const getBase64Avatar = async (): Promise<string> => {
   }
 
   return '';
+};
+
+export const stars = async (): Promise<any[]> => {
+  let hasNextPage;
+  let cursor = '';
+  let dataset = [];
+  do {
+    console.log('star pagination', cursor);
+    const {
+      viewer: {
+        starredRepositories: { pageInfo, totalCount, nodes },
+      },
+    } = await graphql(
+      gql`
+        query Star($after: String = "") {
+          viewer {
+            starredRepositories(after: $after, first: 100) {
+              pageInfo {
+                endCursor
+                hasNextPage
+              }
+              totalCount
+              nodes {
+                id
+                nameWithOwner
+                description
+                url
+                primaryLanguage {
+                  name
+                }
+              }
+            }
+          }
+        }
+      `,
+      {
+        headers,
+        after: cursor,
+      }
+    );
+    hasNextPage = pageInfo.hasNextPage;
+    cursor = pageInfo.endCursor;
+    dataset = dataset.concat(nodes);
+    if (process.env.NODE_ENV !== 'production') break;
+  } while (hasNextPage);
+  return dataset;
 };

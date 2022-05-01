@@ -6,14 +6,16 @@ import { SocialList } from '../components/SocialList';
 import React from 'react';
 import Img from 'next/image';
 import { getBase64Avatar, getUserDetails } from 'lib/github-graphql';
+import { proxyCache } from 'lib/cache';
 
 export async function getStaticProps() {
-  const avatar = await getBase64Avatar();
-  return { props: { avatar, user: await getUserDetails() } };
+  const avatar = await proxyCache('avatar', getBase64Avatar);
+  const user = await proxyCache('user', getUserDetails);
+  return { props: { avatar, user } };
 }
 
 export default function Index({ user, avatar }) {
-  const { bio, name, slogin, twitterUsername } = user;
+  const { bio, name } = user;
   return (
     <Layout>
       <BasicMeta url={'/'} />
