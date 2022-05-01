@@ -6,13 +6,15 @@
 
 :root {
   --black: #212121;
-  --white: #f5f5f5;
+  // --white: #f5f5f5;
+  // --accent: #f4a25d;
+  // --black:#1d2344;
+  --white: #EEEDEC;
   --dark-grey: #373e47;
 }
 
 html,
 body {
-  font-family: 'Karla', sans-serif;
   background-color: var(--white);
   color: var(--black);
   font-weight: 200;
