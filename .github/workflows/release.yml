@@ -17,12 +17,6 @@ jobs:
           token: ${{ secrets.GH_PESONAL_TOKEN }}
           persist-credentials: false
 
-      - name: Install dependencies
-        run: npm i
-
-      - name: Test build before deploy
-        run: npm run export
-
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3
         env:
