@@ -1,3 +1,12 @@
+## [0.4.3](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.2...v0.4.3) (2022-05-03)
+
+
+### Bug Fixes
+
+* ci ([c80b655](https://github.com/simonecorsi/simonecorsi.dev/commit/c80b655ffdb6711fff9666797c6d6a777c23c2e3))
+* ci ([a930b55](https://github.com/simonecorsi/simonecorsi.dev/commit/a930b550ec38ff8d78f17be1ada651c2e18494cb))
+* downgraded react to working version ([ec8e397](https://github.com/simonecorsi/simonecorsi.dev/commit/ec8e3979a67d23b91e5772cd59e0d89ab10846bc))
+
 ## [0.4.2](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.1...v0.4.2) (2022-05-03)
 
 
