@@ -1,3 +1,10 @@
+## [0.4.4](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.3...v0.4.4) (2022-05-03)
+
+
+### Bug Fixes
+
+* ci minutes ([eff7088](https://github.com/simonecorsi/simonecorsi.dev/commit/eff7088de9c6f9aa3f8e34816448fbed7261ee71))
+
 ## [0.4.3](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.2...v0.4.3) (2022-05-03)
 
 
