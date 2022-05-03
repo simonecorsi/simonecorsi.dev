@@ -17,9 +17,9 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Semantic release
-        uses: codfish/semantic-release-action@v1
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PESONAL_TOKEN }}
-          GIT_AUTHOR_NAME: '${{ github.actor }}'
-          GIT_COMMITTER_NAME: '${{ github.actor }}'
+          GIT_AUTHOR_NAME: ${{ github.actor }}
+          GIT_COMMITTER_NAME: ${{ github.actor }}
