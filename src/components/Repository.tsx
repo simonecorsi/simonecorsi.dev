@@ -15,7 +15,7 @@ export const Repository = ({
   const license = licenseInfo?.nickname || licenseInfo?.name;
   return (
     <div className="repository-card" key={name}>
-      <a href={url} target="_blank">
+      <a href={url} target="_blank" rel="noreferrer">
         <h3 className="name">
           {name}
           {isArchived ? <span className="pill archived">archived</span> : ''}

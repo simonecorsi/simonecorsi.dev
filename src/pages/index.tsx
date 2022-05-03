@@ -16,6 +16,7 @@ export async function getStaticProps() {
 const Wave = ({ name }) => <h1>{name}</h1>;
 const Bio = ({ bio }) => <h2>{bio}</h2>;
 const Avatar = ({ name, avatar }) => (
+  // eslint-disable-next-line @next/next/no-img-element
   <img
     className="avatar"
     src={avatar}

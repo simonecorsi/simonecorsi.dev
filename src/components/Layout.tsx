@@ -1,3 +1,4 @@
+import type React from 'react';
 import Head from 'next/head';
 import Navigation from './Navigation/Index';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';

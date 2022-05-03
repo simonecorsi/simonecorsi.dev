@@ -13,12 +13,12 @@ export function SocialList({ twitterUsername, login }) {
           title="Twitter"
           href={`https://twitter.com/${twitterUsername}`}
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <Twitter
             width={24}
             height={24}
-            fill={!!dm?.value ? '#fafafa' : '#333'}
+            fill={dm?.value ? '#fafafa' : '#333'}
           />
         </a>
       )}
@@ -27,12 +27,12 @@ export function SocialList({ twitterUsername, login }) {
           title="GitHub"
           href={`https://github.com/${login}`}
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <GitHub
             width={24}
             height={24}
-            fill={!!dm?.value ? '#fafafa' : '#333'}
+            fill={dm?.value ? '#fafafa' : '#333'}
           />
         </a>
       )}

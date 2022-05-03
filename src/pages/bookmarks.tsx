@@ -25,14 +25,14 @@ export default function Bookmarks({ languages, data }) {
   const [useRepos, setRepos] = useState(data);
 
   useEffect(() => {
-    if (!useLang) setRepos(data);
-    else
-      setRepos(
-        data.filter((r) =>
-          r?.primaryLanguage?.name.match(new RegExp(useLang, 'i'))
-        )
-      );
-  }, [useLang]);
+    setRepos(
+      !useLang
+        ? data
+        : data.filter((r) =>
+            r?.primaryLanguage?.name.match(new RegExp(useLang, 'i'))
+          )
+    );
+  }, [data, useLang]);
 
   return (
     <Layout>
@@ -43,12 +43,13 @@ export default function Bookmarks({ languages, data }) {
         <div className="content">
           <h2>{useLang || ''} Bookmarks</h2>
           <p>
-            This is a collection of all the repositories I've starred over the
-            time! The list is automatically updated every night! If you would
-            like to have your personal list you can use my{' '}
+            This is a collection of all the repositories I&apos;ve starred over
+            the time! The list is automatically updated every night! If you
+            would like to have your personal list you can use my
             <a
               href="https://github.com/marketplace/actions/my-awesome-list"
               target="_blank"
+              rel="noreferrer"
             >
               github action
             </a>
@@ -92,10 +93,9 @@ export default function Bookmarks({ languages, data }) {
           <div>
             {
               <ul>
-                {useRepos.map((repo) => (
-                  <li key={repo.id}>
-                    <a href={repo.url}>{repo.nameWithOwner}</a> -{' '}
-                    {repo.description}
+                {useRepos.map((r) => (
+                  <li key={r.id}>
+                    <a href={r.url}>{r.nameWithOwner}</a> - {r.description}
                   </li>
                 ))}
               </ul>

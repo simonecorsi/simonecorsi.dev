@@ -29,7 +29,7 @@ export default function Repositories({ repositories }) {
         <div className="content">
           <div className="repositories-list">
             {repositories.map((node) => (
-              <Repository {...node} />
+              <Repository {...node} key={node.id} />
             ))}
           </div>
         </div>

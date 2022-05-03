@@ -7,12 +7,7 @@ type Props = {
   description?: string;
   image?: string;
 };
-export default function OpenGraphMeta({
-  url,
-  title,
-  description,
-  image,
-}: Props) {
+export default function OpenGraphMeta({ url, title, description }: Props) {
   return (
     <Head>
       <meta property="og:site_name" content={config.site_title} />

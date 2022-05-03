@@ -168,6 +168,29 @@ export const getBase64Avatar = async (): Promise<string> => {
   return '';
 };
 
+type StarredRepoResponse = {
+  viewer: {
+    starredRepositories: {
+      pageInfo: {
+        endCursor: string;
+        hasNextPage: string;
+      };
+      totalCount: number;
+      nodes: StarredRepo[];
+    };
+  };
+};
+type StarredRepo = {
+  nodes: {
+    id: string;
+    nameWithOwner: string;
+    description: string;
+    url: string;
+    primaryLanguage: {
+      name: string;
+    };
+  };
+};
 export const stars = async (): Promise<any[]> => {
   let hasNextPage;
   let cursor = '';
@@ -176,9 +199,9 @@ export const stars = async (): Promise<any[]> => {
     console.log('star pagination', cursor);
     const {
       viewer: {
-        starredRepositories: { pageInfo, totalCount, nodes },
+        starredRepositories: { pageInfo, nodes },
       },
-    } = await graphql(
+    }: StarredRepoResponse = await graphql(
       gql`
         query Star($after: String = "") {
           viewer {
