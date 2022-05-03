@@ -1,3 +1,5 @@
+console.log(process.env);
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -12,7 +14,7 @@ module.exports = withBundleAnalyzer({
   images: {
     domains: ['raw.githubusercontent.com', 'avatars.githubusercontent.com'],
   },
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  webpack: (config) => {
     config.module.rules.push(
       ...[
         {
