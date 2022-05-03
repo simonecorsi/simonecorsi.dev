@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.0...v0.4.1) (2022-05-03)
+
+
+### Bug Fixes
+
+* ci export commands ([9bc34ca](https://github.com/simonecorsi/simonecorsi.dev/commit/9bc34caad25a2bc6353038cf9c64ff109a2d4b5f))
+
 # [0.4.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.3.0...v0.4.0) (2022-05-03)
 
 
