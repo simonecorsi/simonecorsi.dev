@@ -14,21 +14,22 @@
     "prepare": "node prepare.js || echo 'Skipping prepare'"
   },
   "dependencies": {
-    "use-dark-mode": "^2.3.1",
-    "react-toggle-dark-mode": "^1.0.4",
-    "marked": "^2.1.2",
-    "language-colors": "^1.184.0",
-    "got": "^12.0.4",
-    "dayjs": "^1.11.1",
     "@octokit/graphql": "^4.8.0",
+    "dayjs": "^1.11.1",
+    "got": "^12.0.4",
+    "language-colors": "^1.184.0",
+    "marked": "^2.1.2",
     "next": "^12.1.5",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-toggle-dark-mode": "^1.0.4",
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@next/bundle-analyzer": "^11.0.1",
+    "@semantic-release/changelog": "^6.0.1",
     "@svgr/webpack": "^5.4.0",
     "@types/jest": "^26.0.9",
     "@types/node": "^13.11.0",
