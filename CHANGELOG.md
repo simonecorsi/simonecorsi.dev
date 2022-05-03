@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.3.0...v0.4.0) (2022-05-03)
+
+
+### Features
+
+* change deploy flow ([fe2f8ef](https://github.com/simonecorsi/simonecorsi.dev/commit/fe2f8ef438f1410bfcf33cf493d9431609fa0086))
+
 # [0.3.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.2.0...v0.3.0) (2022-05-03)
 
 
