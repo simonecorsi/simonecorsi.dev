@@ -160,6 +160,12 @@ body.dark-mode {
   right: 2rem;
 
   svg {
+    body.dark-mode & > circle {
+      fill: var(--white);
+    }
+    body.light-mode & > circle {
+      fill: var(--black);
+    }
     body.dark-mode & {
       color: var(--white);
     }
