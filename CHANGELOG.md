@@ -1,3 +1,10 @@
+## [0.4.2](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.1...v0.4.2) (2022-05-03)
+
+
+### Bug Fixes
+
+* regenerates pklock with new swc binary ([1d7d9da](https://github.com/simonecorsi/simonecorsi.dev/commit/1d7d9dad963a5880620de19332c08a9af03b4c55))
+
 ## [0.4.1](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.0...v0.4.1) (2022-05-03)
 
 
