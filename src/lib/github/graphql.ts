@@ -32,11 +32,6 @@ function filterRepositories(node: IRepository): boolean {
     node.stargazerCount < 5 &&
     dayjs(node.createdAt).isBefore(dayjs().subtract(2, 'years'));
 
-  console.log(
-    node.stargazerCount,
-    dayjs(node.createdAt).isBefore(dayjs().subtract(2, 'years'))
-  );
-
   return (
     !isOldAndUgly &&
     node.id !== '315016385' &&
@@ -82,7 +77,6 @@ export async function getStarredRepos() {
   let cursor = '';
   let dataset: StarredRepo[] = [];
   do {
-    console.log('star pagination', cursor);
     const {
       viewer: {
         starredRepositories: { pageInfo, nodes },
