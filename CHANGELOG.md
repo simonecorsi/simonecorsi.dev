@@ -1,3 +1,15 @@
+# [0.5.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.4...v0.5.0) (2022-05-04)
+
+
+### Bug Fixes
+
+* graphql ([a12fb1b](https://github.com/simonecorsi/simonecorsi.dev/commit/a12fb1be046da6714623cefe30362528fb3a6cea))
+
+
+### Features
+
+* **github:** moved all to graphql ([4ef78f2](https://github.com/simonecorsi/simonecorsi.dev/commit/4ef78f24db161b77a985e3a3882a49333122e1e0))
+
 ## [0.4.4](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.3...v0.4.4) (2022-05-03)
 
 
