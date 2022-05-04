@@ -1,5 +1,5 @@
 import colors from 'language-colors';
-import { Repository as RepositoryType } from 'lib/github-graphql';
+import { IRepository } from 'lib/github/queries';
 
 export const Repository = ({
   name,
@@ -10,7 +10,7 @@ export const Repository = ({
   stargazerCount,
   updatedAt,
   isArchived,
-}: RepositoryType) => {
+}: IRepository) => {
   const language = primaryLanguage?.name;
   const license = licenseInfo?.nickname || licenseInfo?.name;
   return (

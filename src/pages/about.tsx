@@ -3,16 +3,10 @@ import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import marked from 'marked';
-import { githubWeb } from '../lib/client';
-import config from 'lib/config';
+import { getPersonalBioReadme } from 'lib/github/graphql';
 
 export async function getStaticProps() {
-  const body = (
-    await githubWeb.get(
-      `https://raw.githubusercontent.com/${config.github_account}/${config.github_account}/main/README.md`
-    )
-  ).body;
-
+  const body = await getPersonalBioReadme();
   return { props: { data: marked(body) } };
 }
 

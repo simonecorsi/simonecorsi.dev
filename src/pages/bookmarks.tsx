@@ -5,10 +5,10 @@ import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 import { useEffect, useState } from 'react';
 import colors from 'language-colors';
 import { proxyCache } from 'lib/cache';
-import { stars } from 'lib/github-graphql';
+import { getStarredRepos } from 'lib/github/graphql';
 
 export async function getStaticProps() {
-  const body = await proxyCache('stars', stars);
+  const body = await proxyCache('stars', getStarredRepos);
 
   return {
     props: {

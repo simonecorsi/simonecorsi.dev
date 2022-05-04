@@ -3,15 +3,13 @@ import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
 
-import {
-  getUserRepositories,
-  Repository as RepositoryType,
-} from 'lib/github-graphql';
+import { getUserRepositories } from 'lib/github/graphql';
 import { Repository } from 'components/Repository';
 import { proxyCache } from 'lib/cache';
+import { IRepository } from 'lib/github/queries';
 
 export async function getStaticProps() {
-  let repositories: RepositoryType[] = await proxyCache(
+  let repositories: IRepository[] = await proxyCache(
     'repositories',
     getUserRepositories
   );
