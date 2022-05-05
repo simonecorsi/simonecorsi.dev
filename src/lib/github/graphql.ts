@@ -33,9 +33,7 @@ function filterRepositories(node: IRepository): boolean {
     dayjs(node.createdAt).isBefore(dayjs().subtract(2, 'years'));
 
   return (
-    !isOldAndUgly &&
-    node.id !== '315016385' &&
-    Boolean(node.name.match('simonecorsi'))
+    !isOldAndUgly && node.id !== '315016385' && !node.name.match('simonecorsi')
   );
 }
 
