@@ -1,3 +1,15 @@
+## [0.5.1](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.5.0...v0.5.1) (2022-05-05)
+
+
+### Bug Fixes
+
+* **repositories:** wrong filter ([309f4e6](https://github.com/simonecorsi/simonecorsi.dev/commit/309f4e66c375fb7746fb2526ae232ee3a7d7beab))
+
+
+### Performance Improvements
+
+* use system fonts ([16db345](https://github.com/simonecorsi/simonecorsi.dev/commit/16db3458128758ce8d96ac10d3a53c6e2e6633ce))
+
 # [0.5.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.4.4...v0.5.0) (2022-05-04)
 
 
