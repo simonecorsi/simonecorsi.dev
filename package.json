@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
-    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.3",
     "@next/bundle-analyzer": "^12.2.0",
     "@semantic-release/changelog": "^6.0.1",
     "@svgr/webpack": "^5.4.0",
