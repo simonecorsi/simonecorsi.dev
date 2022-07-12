@@ -6,7 +6,31 @@ permissions:
   contents: write
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PESONAL_TOKEN }}
+          persist-credentials: false
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Build
+        run: npm run build
+
+      - name: Run
+        run: npm run start &
+
+      - name: Check
+        run: curl -f -LI http://localhost:3000
+
   dependabot:
+    needs: [check]
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
