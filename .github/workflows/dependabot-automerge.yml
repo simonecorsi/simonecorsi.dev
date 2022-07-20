@@ -25,7 +25,7 @@ jobs:
         run: npm run start &
 
       - name: Check
-        run: curl -f -LI http://localhost:3000
+        run: curl --retry 10 --retry-delay 0 --max-time 10 --retry-max-time 60  -f -LI http://localhost:3000
 
   dependabot:
     needs: [check]
