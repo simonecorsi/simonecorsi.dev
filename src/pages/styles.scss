@@ -91,21 +91,25 @@ a:hover {
   opacity: 1;
 }
 
-body.light-mode {
-  background: var(--white);
-  color: var(--black);
-
-  a {
+[data-theme="light"] {
+  body{
+    background: var(--white);
     color: var(--black);
+  
+    a {
+      color: var(--black);
+    }
   }
 }
 
-body.dark-mode {
-  background: var(--black);
-  color: var(--white);
-
-  a {
+[data-theme="dark"] {
+  body{
+    background: var(--black);
     color: var(--white);
+  
+    a {
+      color: var(--white);
+    }
   }
 }
 
@@ -152,10 +156,10 @@ body.dark-mode {
   max-width: 175px;
   margin-bottom: 2rem;
 
-  body.dark-mode & {
+  [data-theme="dark"] & {
     border: 5px solid var(--white);
   }
-  body.light-mode & {
+  [data-theme="light"] & {
     border: 5px solid var(--black);
   }
 }
@@ -166,16 +170,16 @@ body.dark-mode {
   right: 2rem;
 
   svg {
-    body.dark-mode & > circle {
+    [data-theme="dark"] & > circle {
       fill: var(--white);
     }
-    body.light-mode & > circle {
+    [data-theme="light"] & > circle {
       fill: var(--black);
     }
-    body.dark-mode & {
+    [data-theme="dark"] & {
       color: var(--white);
     }
-    body.light-mode & {
+    [data-theme="light"] & {
       color: var(--black);
     }
   }
@@ -196,11 +200,11 @@ body.dark-mode {
     transform: translate(0%);
   }
 
-  body.dark-mode & {
+  [data-theme="dark"] & {
     background-color: var(--white);
   }
 
-  body.light-mode & {
+  [data-theme="light"] & {
     background-color: var(--black);
   }
 
@@ -223,20 +227,20 @@ body.dark-mode {
       //   font-weight: bold;
       // }
 
-      body.dark-mode & a {
+      [data-theme="dark"] & a {
         color: var(--black);
       }
 
-      body.light-mode & a {
+      [data-theme="light"] & a {
         color: var(--white);
       }
 
       @include desktop {
-        body.dark-mode & a {
+        [data-theme="dark"] & a {
           color: var(--white);
         }
 
-        body.light-mode & a {
+        [data-theme="light"] & a {
           color: var(--black);
         }
       }
@@ -268,28 +272,28 @@ body.dark-mode {
   left: calc(50% - 28px / 2);
   transition: all 150ms ease-in;
 
-  body.dark-mode & {
+  [data-theme="dark"] & {
     background: var(--white);
   }
 
-  body.dark-mode [data-open='true'] & {
+  [data-theme="dark"] [data-open='true'] & {
     background: var(--black);
   }
 
-  body.light-mode & {
+  [data-theme="light"] & {
     background: var(--black);
   }
 
-  body.light-mode [data-open='true'] & {
+  [data-theme="light"] [data-open='true'] & {
     background: var(--white);
   }
 
   @include desktop {
-    body.dark-mode & {
+    [data-theme="dark"] & {
       background: var(--white);
     }
 
-    body.light-mode & {
+    [data-theme="light"] & {
       background: var(--black);
     }
   }
@@ -321,10 +325,10 @@ body.dark-mode {
 .socials {
   margin-top: 2.5rem;
   svg {
-    body.dark-mode & {
+    [data-theme="dark"] & {
       fill: var(--white);
     }
-    body.light-mode & {
+    [data-theme="light"] & {
       fill: var(--black);
     }
   }
@@ -372,11 +376,11 @@ body.dark-mode {
     border-bottom: 1px solid;
     padding-bottom: 1rem;
 
-    body.dark-mode & {
+    [data-theme="dark"] & {
       border-color: var(--dark-grey);
     }
 
-    body.light-mode & {
+    [data-theme="light"] & {
       border-color: var(--dark-grey);
     }
   }
@@ -446,11 +450,11 @@ body.dark-mode {
   display: inline-block;
   border: 1px solid;
 
-  body.dark-mode & {
+  [data-theme="dark"] & {
     border-color: var(--white);
   }
 
-  body.light-mode & {
+  [data-theme="light"] & {
     border-color: var(--dark-grey);
   }
 }

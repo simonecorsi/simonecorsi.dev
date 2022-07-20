@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Twitter from '../assets/twitter-alt.svg';
 import GitHub from '../assets/github-alt.svg';
-import { darkModeContext } from './DarkMode';
-import { DarkMode } from 'use-dark-mode';
+import { useTheme } from 'next-themes';
+
+const SIZE = 24;
+const isDarkMode = (theme: string) => theme === 'dark';
 
 export function SocialList({ twitterUsername, login }) {
-  const dm = useContext(darkModeContext) as DarkMode;
+  const { theme } = useTheme();
+
   return (
     <div className="socials">
       {twitterUsername && (
@@ -16,9 +19,9 @@ export function SocialList({ twitterUsername, login }) {
           rel="noopener noreferrer"
         >
           <Twitter
-            width={24}
-            height={24}
-            fill={dm?.value ? '#fafafa' : '#333'}
+            width={SIZE}
+            height={SIZE}
+            fill={isDarkMode(theme) ? '#fafafa' : '#333'}
           />
         </a>
       )}
@@ -30,9 +33,9 @@ export function SocialList({ twitterUsername, login }) {
           rel="noopener noreferrer"
         >
           <GitHub
-            width={24}
-            height={24}
-            fill={dm?.value ? '#fafafa' : '#333'}
+            width={SIZE}
+            height={SIZE}
+            fill={isDarkMode(theme) ? '#fafafa' : '#333'}
           />
         </a>
       )}
