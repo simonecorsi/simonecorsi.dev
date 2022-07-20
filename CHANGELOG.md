@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.5.1...v0.6.0) (2022-07-20)
+
+
+### Features
+
+* simplify darkmode ([b3af960](https://github.com/simonecorsi/simonecorsi.dev/commit/b3af96028794d2b605a45f34f43624b302f1570a))
+
 ## [0.5.1](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.5.0...v0.5.1) (2022-05-05)
 
 
