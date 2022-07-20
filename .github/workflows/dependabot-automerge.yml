@@ -18,11 +18,8 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Build
-        run: npm run build
-
       - name: Run
-        run: npm run start &
+        run: npm run dev &
 
       - name: Check
         run: curl --retry 10 --retry-delay 0 --max-time 10 --retry-max-time 60  -f -LI http://localhost:3000
