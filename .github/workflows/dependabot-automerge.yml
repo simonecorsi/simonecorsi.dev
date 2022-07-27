@@ -15,11 +15,14 @@ jobs:
           token: ${{ secrets.GH_PESONAL_TOKEN }}
           persist-credentials: false
 
-      - name: Install dependencies
+      - name: Check dep Install dependencies
         run: npm i
 
+      - name: Check build
+        run: npm run build
+
       - name: Run
-        run: npm run dev &
+        run: npm run start &
 
       - name: Check
         run: curl --retry 10 --retry-delay 0 --max-time 10 --retry-max-time 60  -f -LI http://localhost:3000
