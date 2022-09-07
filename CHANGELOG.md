@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.6.0...v0.6.1) (2022-09-07)
+
+
+### Bug Fixes
+
+* **marked:** named export ([6d25db7](https://github.com/simonecorsi/simonecorsi.dev/commit/6d25db7cf75b21921d7f7f48e83bcda515b4db6f))
+
 # [0.6.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.5.1...v0.6.0) (2022-07-20)
 
 
