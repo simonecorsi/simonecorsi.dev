@@ -10,10 +10,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: lts/*
+
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GH_PESONAL_TOKEN }}
-          persist-credentials: true
+          persist-credentials: false
 
       - name: Check dep Install dependencies
         run: npm i
