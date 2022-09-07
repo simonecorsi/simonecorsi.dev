@@ -2,7 +2,7 @@ import Layout from '../components/Layout';
 import BasicMeta from '../components/meta/BasicMeta';
 import OpenGraphMeta from '../components/meta/OpenGraphMeta';
 import TwitterCardMeta from '../components/meta/TwitterCardMeta';
-import marked from 'marked';
+import { marked } from 'marked';
 import { getPersonalBioReadme } from 'lib/github/graphql';
 
 export async function getStaticProps() {
