@@ -29,7 +29,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@next/bundle-analyzer": "^12.2.5",
+    "@next/bundle-analyzer": "^12.3.0",
     "@semantic-release/changelog": "^6.0.1",
     "@svgr/webpack": "^5.4.0",
     "@types/jest": "^26.0.9",
