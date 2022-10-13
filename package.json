@@ -15,7 +15,7 @@
     "prepare": "node prepare.js || echo 'Skipping prepare'"
   },
   "dependencies": {
-    "@octokit/graphql": "^5.0.1",
+    "@octokit/graphql": "^5.0.2",
     "dayjs": "^1.11.5",
     "got": "^12.5.2",
     "language-colors": "^1.184.0",
