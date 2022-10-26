@@ -34,7 +34,7 @@
     "@svgr/webpack": "^6.5.0",
     "@types/jest": "^26.0.9",
     "@types/node": "^18.11.5",
-    "@types/react": "^18.0.22",
+    "@types/react": "^18.0.23",
     "@typescript-eslint/parser": "^5.41.0",
     "eslint": "^8.26.0",
     "eslint-config-next": "^12.3.1",
