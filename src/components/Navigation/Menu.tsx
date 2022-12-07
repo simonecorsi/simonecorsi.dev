@@ -18,13 +18,12 @@ export function MenuItem({
 }) {
   return (
     <li key={route.label}>
-      <Link href={route.path}>
-        <a
-          data-active={isActive()}
-          {...(route.blank ? { target: '_blank' } : {})}
-        >
-          {route.label}
-        </a>
+      <Link
+        href={route.path}
+        data-active={isActive()}
+        {...(route.blank ? { target: '_blank' } : {})}
+      >
+        {route.label}
       </Link>
     </li>
   );
