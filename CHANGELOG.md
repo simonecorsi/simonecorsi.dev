@@ -1,3 +1,10 @@
+## [0.6.2](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.6.1...v0.6.2) (2022-12-07)
+
+
+### Bug Fixes
+
+* codemod link ([0f886fc](https://github.com/simonecorsi/simonecorsi.dev/commit/0f886fc7156c3883c7edce7dace8ab762860a2e5))
+
 ## [0.6.1](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.6.0...v0.6.1) (2022-09-07)
 
 
