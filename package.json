@@ -19,7 +19,7 @@
     "dayjs": "^1.11.7",
     "got": "^12.5.3",
     "language-colors": "^2.1.38",
-    "marked": "^4.2.3",
+    "marked": "^4.2.4",
     "next": "^13.0.6",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
