@@ -33,7 +33,7 @@
     "@semantic-release/changelog": "^6.0.2",
     "@svgr/webpack": "^6.5.1",
     "@types/jest": "^26.0.9",
-    "@types/node": "^18.11.14",
+    "@types/node": "^18.11.15",
     "@types/react": "^18.0.26",
     "@typescript-eslint/parser": "^5.46.1",
     "eslint": "^8.29.0",
