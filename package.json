@@ -18,7 +18,7 @@
     "@octokit/graphql": "^5.0.4",
     "dayjs": "^1.11.7",
     "got": "^12.5.3",
-    "language-colors": "^2.1.38",
+    "language-colors": "^2.1.39",
     "marked": "^4.2.5",
     "next": "^13.1.1",
     "next-themes": "^0.2.1",
