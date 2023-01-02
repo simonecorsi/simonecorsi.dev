@@ -6172,10 +6172,10 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
-language-colors@^2.1.38:
-  version "2.1.38"
-  resolved "https://registry.yarnpkg.com/language-colors/-/language-colors-2.1.38.tgz#c34a684cb6099c85f82a12457fa8d377fdd9b192"
-  integrity sha512-8l51lKY+rTogD43GpqifNF6gEw+8v+/DLD+e257el6AqbV2Ct0gjZQ3QzB6YcLifLxcXBPcxIIrbIgvHXo2B6w==
+language-colors@^2.1.39:
+  version "2.1.39"
+  resolved "https://registry.yarnpkg.com/language-colors/-/language-colors-2.1.39.tgz#ca8a49568b773d5aa446147fd2f8f56d13548718"
+  integrity sha512-IHQdmqVF5rGFeHv5J7QbOkAgOVR341QCw9DecdT5mlYSDJZFtM7ApaQg7ebNpIRdrMfetBx3lFnxROCEYgBXVw==
   dependencies:
     color "^3.1.2"
 
