@@ -45,7 +45,7 @@
     "jest": "^26.3.0",
     "lint-staged": "^13.1.0",
     "markdown-toc": "^1.2.0",
-    "next-sitemap": "^3.1.45",
+    "next-sitemap": "^3.1.47",
     "normalize.css": "^8.0.1",
     "prettier": "^2.8.3",
     "sass": "^1.57.1",
