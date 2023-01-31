@@ -1,6 +1,8 @@
 name: Deploy on DigitalOcean
 
 on:
+  schedule:
+    - cron: '00 00 * * *'
   release:
     types: [created]
 
