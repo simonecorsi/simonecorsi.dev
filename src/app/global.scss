@@ -474,6 +474,16 @@ a:hover {
   }
 }
 
+.post-card {
+  margin-bottom: 2.5rem;
+  .post-date {
+    font-size: .8rem;
+  }
+  .post-title {
+    font-weight: bold;
+  }
+}
+
 .blog-post {
 
   a {

@@ -7,14 +7,20 @@ export function set(key: string, value: any, cache = InMemory): any {
 }
 
 export async function proxyCache(
-  key: string,
+  key: any,
   executor: () => any,
   cache = InMemory
 ) {
   if (cache.has(key)) {
     return cache.get(key);
   }
+
   const result = await executor();
+
+  if (typeof key === 'function') {
+    key = key(result);
+  }
+
   set(key, result);
   return result;
 }

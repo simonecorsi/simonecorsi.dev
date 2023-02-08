@@ -31,14 +31,16 @@ const Configs = {
   github_account: 'simonecorsi',
   linkedin_account: '/in/simonecorsi',
   routes: [
-    { path: '/', label: 'home' },
-    { path: '/about/', label: 'about' },
-    { path: '/projects/', label: 'projects' },
-    { path: '/bookmarks/', label: 'bookmarks' },
+    { path: '/', label: 'home', enabled: true },
+    { path: '/blog/', label: 'blog', enabled: true },
+    { path: '/about/', label: 'about', enabled: true },
+    { path: '/projects/', label: 'projects', enabled: true },
+    { path: '/bookmarks/', label: 'bookmarks', enabled: true },
     {
       path: 'https://www.linkedin.com/in/simonecorsi/',
       label: 'resume',
       blank: true,
+      enabled: true,
     },
   ],
 };

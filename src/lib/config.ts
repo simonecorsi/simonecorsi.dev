@@ -12,6 +12,7 @@ type Config = {
     path: string;
     label: string;
     blank: boolean | undefined;
+    enabled: boolean;
   }[];
 };
 
