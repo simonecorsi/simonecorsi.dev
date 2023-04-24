@@ -1,3 +1,10 @@
+## [0.6.3](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.6.2...v0.6.3) (2023-04-24)
+
+
+### Bug Fixes
+
+* deps fix ([425fbc8](https://github.com/simonecorsi/simonecorsi.dev/commit/425fbc86d4d6fba647cc3ffc0a1fa5149ff96de6))
+
 ## [0.6.2](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.6.1...v0.6.2) (2022-12-07)
 
 
