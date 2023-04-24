@@ -7,13 +7,14 @@ function isActivePath(path: string, currentPath: string) {
   return removeSlash(path) === removeSlash(currentPath);
 }
 
-type MenuItemType = typeof config.routes;
+type MenuItemsType = typeof config.routes;
+type MenuItemType = (typeof config.routes)[number];
 
 export function MenuItem({
   route,
   isActive,
 }: {
-  route: MenuItemType[number];
+  route: MenuItemType;
   isActive: () => boolean;
 }) {
   return (
@@ -34,7 +35,7 @@ export function Menu({
   currentPathname,
   open,
 }: {
-  routes: MenuItemType[];
+  routes: MenuItemsType;
   currentPathname: string;
   open: boolean;
 }) {

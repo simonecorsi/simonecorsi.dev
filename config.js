@@ -32,7 +32,6 @@ const Configs = {
   linkedin_account: '/in/simonecorsi',
   routes: [
     { path: '/', label: 'home' },
-    // { "path": "/blog/", "label": "blog" },
     { path: '/about/', label: 'about' },
     { path: '/projects/', label: 'projects' },
     { path: '/bookmarks/', label: 'bookmarks' },
