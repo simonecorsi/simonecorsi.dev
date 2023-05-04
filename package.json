@@ -27,7 +27,7 @@
     "react-toggle-dark-mode": "^1.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.1",
+    "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.1",
     "@next/bundle-analyzer": "^13.3.4",
     "@semantic-release/changelog": "^6.0.3",
