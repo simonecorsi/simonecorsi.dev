@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@octokit/graphql": "^5.0.6",
-    "dayjs": "^1.11.8",
+    "dayjs": "^1.11.9",
     "got": "^13.0.0",
     "language-colors": "^2.1.45",
     "marked": "^5.1.0",
