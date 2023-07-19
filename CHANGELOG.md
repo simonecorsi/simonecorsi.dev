@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.6.3...v0.7.0) (2023-07-19)
+
+
+### Features
+
+* remove unused and update engine ([2b78f94](https://github.com/simonecorsi/simonecorsi.dev/commit/2b78f94e0f5e58fdf3c55fe51bfea279804d4519))
+
 ## [0.6.3](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.6.2...v0.6.3) (2023-04-24)
 
 
