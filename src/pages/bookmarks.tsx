@@ -28,8 +28,8 @@ export default function Bookmarks({ languages, data }) {
     setRepos(
       !useLang
         ? data
-        : data.filter((r) =>
-            r?.primaryLanguage?.name.match(new RegExp(useLang, 'i'))
+        : data.filter(
+            (r) => r?.primaryLanguage?.name.match(new RegExp(useLang, 'i'))
           )
     );
   }, [data, useLang]);
