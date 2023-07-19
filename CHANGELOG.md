@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.7.0...v0.7.1) (2023-07-19)
+
+
+### Bug Fixes
+
+* downgrade node ([818ccf6](https://github.com/simonecorsi/simonecorsi.dev/commit/818ccf6819cf39bcc521daa46c8bc825f327c574))
+
 # [0.7.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.6.3...v0.7.0) (2023-07-19)
 
 
