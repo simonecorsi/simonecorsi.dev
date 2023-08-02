@@ -1,3 +1,15 @@
+# [1.0.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.7.2...v1.0.0) (2023-08-02)
+
+
+### Features
+
+* **next-13:** server side componenets ([e35a276](https://github.com/simonecorsi/simonecorsi.dev/commit/e35a276a92c690cecefdbd7245c7116df4c9d2ca))
+
+
+### BREAKING CHANGES
+
+* **next-13:** SSC may break something
+
 ## [0.7.2](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.7.1...v0.7.2) (2023-07-19)
 
 
