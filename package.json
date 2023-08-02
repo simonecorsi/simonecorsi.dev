@@ -7,8 +7,8 @@
     "build": "next build",
     "analyze": "ANALYZE=true npm run build",
     "start": "next start",
-    "preexport": "npm i --force && NODE_ENV=production next build",
-    "export": "NODE_ENV=production next export -o ./dist",
+    "preexport": "npm i --force ",
+    "export": "NODE_ENV=production next build",
     "postexport": "next-sitemap",
     "push": "git fetch && git rebase origin/master && git push origin master",
     "prepare": "node prepare.js || echo 'Skipping prepare'"
@@ -23,6 +23,8 @@
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "normalize.css": "^8.0.1",
+    "next-sitemap": "^4.1.8",
     "react-toggle-dark-mode": "^1.1.1"
   },
   "devDependencies": {
@@ -42,8 +44,6 @@
     "is-ci": "^3.0.1",
     "lint-staged": "^13.2.3",
     "markdown-toc": "^1.2.0",
-    "next-sitemap": "^4.1.8",
-    "normalize.css": "^8.0.1",
     "prettier": "^3.0.0",
     "sass": "^1.63.6",
     "semantic-release": "^21.0.7",

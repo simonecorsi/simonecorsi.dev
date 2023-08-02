@@ -7,7 +7,7 @@ const client = got.extend({
 });
 
 export async function getUserPublicBlogPosts() {
-  const iterator = client.paginate('https://dev.to/api/articles/me');
+  const iterator = client.paginate<[]>('https://dev.to/api/articles/me');
 
   let posts = [];
   for await (const page of iterator) {
