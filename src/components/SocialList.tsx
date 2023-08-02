@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Twitter from '../assets/twitter-alt.svg';
 import GitHub from '../assets/github-alt.svg';
@@ -21,7 +23,7 @@ export function SocialList({ twitterUsername, login }) {
           <Twitter
             width={SIZE}
             height={SIZE}
-            fill={isDarkMode(theme) ? '#fafafa' : '#333'}
+            fill={isDarkMode(theme || 'light') ? '#fafafa' : '#333'}
           />
         </a>
       )}
@@ -35,7 +37,7 @@ export function SocialList({ twitterUsername, login }) {
           <GitHub
             width={SIZE}
             height={SIZE}
-            fill={isDarkMode(theme) ? '#fafafa' : '#333'}
+            fill={isDarkMode(theme || 'light') ? '#fafafa' : '#333'}
           />
         </a>
       )}

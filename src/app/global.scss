@@ -69,7 +69,7 @@ h3 {
   }
 }
 
-#__next {
+#app-container {
   min-height: 100vh;
   display: flex;
 }
@@ -87,6 +87,7 @@ a {
 a[data-active='false'] {
   opacity: 0.25;
 }
+
 a[data-active='true'],
 a:hover {
   opacity: 1;
@@ -116,7 +117,8 @@ a:hover {
 
 .home {
   height: calc(100vh - 8rem);
-  & > div {
+
+  &>div {
     text-align: center;
   }
 }
@@ -160,6 +162,7 @@ a:hover {
   [data-theme='dark'] & {
     border: 5px solid var(--white);
   }
+
   [data-theme='light'] & {
     border: 5px solid var(--black);
   }
@@ -171,15 +174,18 @@ a:hover {
   right: 2rem;
 
   svg {
-    [data-theme='dark'] & > circle {
+    [data-theme='dark'] &>circle {
       fill: var(--white);
     }
-    [data-theme='light'] & > circle {
+
+    [data-theme='light'] &>circle {
       fill: var(--black);
     }
+
     [data-theme='dark'] & {
       color: var(--white);
     }
+
     [data-theme='light'] & {
       color: var(--black);
     }
@@ -221,6 +227,7 @@ a:hover {
     padding: 0 3rem;
     text-align: right;
     font-size: 1.35rem;
+
     li {
       margin-bottom: 2rem;
 
@@ -301,6 +308,7 @@ a:hover {
 
   &.meat-1 {
     transform: translateY(-10px);
+
     [data-open='true'] & {
       transform: rotate(45deg);
     }
@@ -325,10 +333,12 @@ a:hover {
 
 .socials {
   margin-top: 2.5rem;
+
   svg {
     [data-theme='dark'] & {
       fill: var(--white);
     }
+
     [data-theme='light'] & {
       fill: var(--black);
     }
@@ -337,6 +347,7 @@ a:hover {
   a {
     display: inline-block;
   }
+
   a:not(:last-child) {
     margin-right: 2em;
   }
@@ -391,6 +402,7 @@ a:hover {
   .name {
     font-size: 1.25rem;
     font-weight: normal;
+
     &:hover {
       opacity: 0.5;
       transition: opacity 0.25s ease-out;
@@ -412,7 +424,7 @@ a:hover {
     font-size: 0.8rem;
     margin-top: 1rem;
 
-    & > span {
+    &>span {
       margin-right: 1rem;
     }
 
@@ -430,8 +442,8 @@ a:hover {
     }
 
     .lang-wrp {
-      .lang {
-      }
+      .lang {}
+
       .dot {
         display: inline-block;
         margin-right: 5px;
@@ -466,17 +478,18 @@ a:hover {
 
   a {
     text-decoration: underline;
+
     &:hover {
       opacity: 0.5;
       transition: ease-out .25s opacity;
     }
   }
 
-  .tag{
+  .tag {
     padding: 0 5px 0 0;
   }
 
-  .post-body{
+  .post-body {
     margin-top: 4rem;
   }
 }

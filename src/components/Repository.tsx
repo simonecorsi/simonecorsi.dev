@@ -1,7 +1,10 @@
-import colors from 'language-colors';
-import { IRepository } from 'lib/github/queries';
+import type { IRepository } from 'lib/github/queries';
 
-export const Repository = ({
+const COLORS_URL =
+  'https://raw.githubusercontent.com/ozh/github-colors/master/colors.json';
+let COLORS;
+
+export async function Repository({
   name,
   url,
   description,
@@ -10,9 +13,18 @@ export const Repository = ({
   stargazerCount,
   updatedAt,
   isArchived,
-}: IRepository) => {
+}: IRepository) {
   const language = primaryLanguage?.name;
   const license = licenseInfo?.nickname || licenseInfo?.name;
+
+  if (!COLORS) {
+    const res = await fetch(COLORS_URL);
+    if (!res.ok) {
+      throw new Error(`Cannot fetch colors from github at ${COLORS_URL}`);
+    }
+    COLORS = await res.json();
+  }
+
   return (
     <div className="repository-card" key={name}>
       <a href={url} target="_blank" rel="noreferrer">
@@ -32,7 +44,9 @@ export const Repository = ({
           <span className="lang-wrp" key={language}>
             <span
               className="dot"
-              style={{ background: colors[language.toLowerCase()] || '#333' }}
+              style={{
+                background: COLORS?.[language]?.color || '#333',
+              }}
             ></span>
             <span className="lang">{language}</span>
           </span>
@@ -44,4 +58,4 @@ export const Repository = ({
       </div>
     </div>
   );
-};
+}
