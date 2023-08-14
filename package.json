@@ -33,7 +33,7 @@
     "@next/bundle-analyzer": "^13.4.10",
     "@semantic-release/changelog": "^6.0.3",
     "@svgr/webpack": "^8.0.1",
-    "@types/node": "^20.4.2",
+    "@types/node": "^20.5.0",
     "@types/react": "^18.2.15",
     "@typescript-eslint/parser": "^6.1.0",
     "eslint": "^8.45.0",
