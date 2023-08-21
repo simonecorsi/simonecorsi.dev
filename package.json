@@ -19,7 +19,7 @@
     "got": "^13.0.0",
     "language-colors": "^2.1.46",
     "marked": "^5.1.0",
-    "next": "^13.4.10",
+    "next": "^13.4.19",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
