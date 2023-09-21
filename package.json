@@ -45,7 +45,7 @@
     "lint-staged": "^13.2.3",
     "markdown-toc": "^1.2.0",
     "prettier": "^3.0.0",
-    "sass": "^1.63.6",
+    "sass": "^1.68.0",
     "semantic-release": "^21.0.7",
     "typescript": "^5.1.6"
   },
