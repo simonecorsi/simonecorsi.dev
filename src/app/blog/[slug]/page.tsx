@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
 import { proxyCache } from 'lib/cache';
 import { getSinglePosts, getUserPublicBlogPosts } from 'lib/devto';
 import { marked } from 'marked';
@@ -10,8 +8,6 @@ export const metadata = {
   ...twitterMetadata({ url: '/blog' }),
   ...openGraphMetadata({ url: '/blog' }),
 };
-
-dayjs.extend(relativeTime);
 
 export async function generateStaticParams() {
   const posts = await proxyCache('devto_blog_posts', getUserPublicBlogPosts);

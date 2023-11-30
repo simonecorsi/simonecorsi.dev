@@ -7,7 +7,7 @@
     "build": "next build",
     "analyze": "ANALYZE=true npm run build",
     "start": "next start",
-    "preexport": "npm i --force ",
+    "preexport": "npm i",
     "export": "NODE_ENV=production next build",
     "postexport": "next-sitemap",
     "push": "git fetch && git rebase origin/master && git push origin master",
@@ -20,12 +20,12 @@
     "language-colors": "^2.1.46",
     "marked": "^5.1.0",
     "next": "^13.4.10",
+    "next-sitemap": "^4.1.8",
     "next-themes": "^0.2.1",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "normalize.css": "^8.0.1",
-    "next-sitemap": "^4.1.8",
-    "react-toggle-dark-mode": "^1.1.1"
+    "@scdev/react-toggle-dark-mode": "../../simonecorsi/react-toggle-dark-mode"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
@@ -50,10 +50,10 @@
     "typescript": "^5.1.6"
   },
   "volta": {
-    "node": "17.9.1",
+    "node": "18.17.1",
     "npm": "9.6.5"
   },
   "engines": {
-    "node": "17.x"
+    "node": "18.x"
   }
 }

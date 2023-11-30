@@ -1,0 +1,15 @@
+# FROM node:18.17.1-buster
+FROM icr.pepita.io/qa/docker-images/node:18.17.1-buster
+
+
+ENV IS_CI="true"
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+
+RUN npm i
+
+COPY . /app
+
+RUN npm run export

@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { DarkModeSwitch } from '@scdev/react-toggle-dark-mode';
 
 const DarkModeButton = () => {
   const [mounted, setMounted] = useState(false);
