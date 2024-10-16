@@ -24,7 +24,7 @@ export default async function Index() {
       <div className="content">
         <Avatar name={user.name} avatar={avatar} />
         <h1>{user.name}</h1>
-        <h2>{user.bio}</h2>;
+        <h2>{user.bio}</h2>
         {/* <span dangerouslySetInnerHTML={{ __html: companyHTML }} /> */}
         <SocialList {...user} />
       </div>
