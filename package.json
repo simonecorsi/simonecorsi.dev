@@ -19,13 +19,13 @@
     "got": "^12.5.3",
     "language-colors": "^2.1.46",
     "marked": "^5.1.0",
-    "next": "^13.4.10",
+    "next": "^14.2.15",
     "next-sitemap": "^4.1.8",
     "next-themes": "^0.2.1",
     "normalize.css": "^8.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@scdev/react-toggle-dark-mode": "../../simonecorsi/react-toggle-dark-mode"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-toggle-dark-mode": "^1.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
