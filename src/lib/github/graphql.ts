@@ -97,7 +97,7 @@ export async function getStarredRepos() {
   let hasNextPage = true;
   let cursor = "";
   let dataset: StarredRepo[] = [];
-  const delay = 1000; // Start with 5 seconds
+  const delay = 5000; // Start with 5 seconds
 
   while (hasNextPage) {
     try {
