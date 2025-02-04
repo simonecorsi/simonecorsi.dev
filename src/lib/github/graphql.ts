@@ -124,7 +124,7 @@ export async function getStarredRepos() {
       console.error("GitHub API error:", error);
 
       // Check if it's a secondary rate limit error
-      if (error.data?.message?.includes("secondary rate limit")) {
+      if (error.message?.includes("secondary rate limit")) {
         console.warn("Hit secondary rate limit. Pausing for 60 seconds...");
         await setTimeout(60000); // Wait 1 minute before retrying
       } else {
