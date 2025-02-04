@@ -25,7 +25,9 @@ body {
   background-color: var(--white);
   color: var(--black);
   font-weight: 200;
-  transition: background ease-out 0.5s, color ease-out 0.5s;
+  transition:
+    background ease-out 0.5s,
+    color ease-out 0.5s;
 }
 
 body {
@@ -36,6 +38,10 @@ body {
 h1 {
   margin: 0;
   font-weight: 600;
+}
+
+.content h1 {
+  font-size: 1.75rem;
 }
 
 h2 {
@@ -118,7 +124,7 @@ a:hover {
 .home {
   height: calc(100vh - 8rem);
 
-  &>div {
+  & > div {
     text-align: center;
   }
 }
@@ -174,11 +180,11 @@ a:hover {
   right: 2rem;
 
   svg {
-    [data-theme='dark'] &>circle {
+    [data-theme='dark'] & > circle {
       fill: var(--white);
     }
 
-    [data-theme='light'] &>circle {
+    [data-theme='light'] & > circle {
       fill: var(--black);
     }
 
@@ -424,7 +430,7 @@ a:hover {
     font-size: 0.8rem;
     margin-top: 1rem;
 
-    &>span {
+    & > span {
       margin-right: 1rem;
     }
 
@@ -442,7 +448,8 @@ a:hover {
     }
 
     .lang-wrp {
-      .lang {}
+      .lang {
+      }
 
       .dot {
         display: inline-block;
@@ -474,14 +481,23 @@ a:hover {
   }
 }
 
-.blog-post {
+.post-card {
+  margin-bottom: 2.5rem;
+  .post-date {
+    font-size: 0.8rem;
+  }
+  .post-title {
+    font-weight: bold;
+  }
+}
 
+.blog-post {
   a {
     text-decoration: underline;
 
     &:hover {
       opacity: 0.5;
-      transition: ease-out .25s opacity;
+      transition: ease-out 0.25s opacity;
     }
   }
 

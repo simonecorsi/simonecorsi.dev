@@ -2,6 +2,7 @@ import { Avatar } from 'components/Avatar';
 import { SocialList } from '../components/SocialList';
 import { getBase64Avatar, getUserDetails } from 'lib/github/graphql';
 import { proxyCache } from 'lib/cache';
+import config from '../lib/config';
 
 async function getData() {
   const avatar = await proxyCache('avatar', getBase64Avatar);
@@ -26,7 +27,7 @@ export default async function Index() {
         <h1>{user.name}</h1>
         <h2>{user.bio}</h2>
         {/* <span dangerouslySetInnerHTML={{ __html: companyHTML }} /> */}
-        <SocialList {...user} />
+        <SocialList {...user} config={config} />
       </div>
     </div>
   );

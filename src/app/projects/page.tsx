@@ -24,6 +24,7 @@ export default async function Repositories() {
   return (
     <div className="page-container repositories">
       <div className="content">
+        <h1>🏗️ Projects</h1>
         <div className="repositories-list">
           {repositories.map((node) => (
             <Repository {...node} key={node.id} />

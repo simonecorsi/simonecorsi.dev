@@ -7,7 +7,6 @@ function isActivePath(path: string, currentPath: string) {
   return removeSlash(path) === removeSlash(currentPath);
 }
 
-type MenuItemsType = typeof config.routes;
 type MenuItemType = (typeof config.routes)[number];
 
 export function MenuItem({
@@ -35,20 +34,22 @@ export function Menu({
   currentPathname,
   open,
 }: {
-  routes: MenuItemsType;
+  routes: MenuItemType[];
   currentPathname: string;
   open: boolean;
 }) {
   return (
     <div className="nav-container" data-open={open}>
       <ul className="nav-list">
-        {routes.map((route) => (
-          <MenuItem
-            key={route.label}
-            route={route}
-            isActive={() => isActivePath(currentPathname, route.path)}
-          />
-        ))}
+        {routes
+          .filter((r) => r.enabled !== false)
+          .map((route) => (
+            <MenuItem
+              key={route.label}
+              route={route}
+              isActive={() => isActivePath(currentPathname, route.path)}
+            />
+          ))}
       </ul>
     </div>
   );

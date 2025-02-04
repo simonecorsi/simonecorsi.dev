@@ -11,15 +11,15 @@ export default function Bookmarks({ languages, data }) {
     setRepos(
       !useLang
         ? data
-        : data.filter(
-            (r) => r?.primaryLanguage?.name.match(new RegExp(useLang, 'i'))
+        : data.filter((r) =>
+            r?.primaryLanguage?.name.match(new RegExp(useLang, 'i'))
           )
     );
   }, [data, useLang]);
 
   return (
     <div className="content">
-      <h2>{useLang || ''} Bookmarks</h2>
+      <h1>📚 {useLang || ''} Bookmarks</h1>
       <p>
         This is a collection of all the repositories I&apos;ve starred over the
         time! The list is automatically updated every night! If you would like
