@@ -97,7 +97,7 @@ export async function getStarredRepos() {
   let hasNextPage = true;
   let cursor = "";
   let dataset: StarredRepo[] = [];
-  let delay = 1000; // Start with 5 seconds
+  const delay = 5000; // Start with 5 seconds
 
   while (hasNextPage) {
     try {
@@ -120,7 +120,6 @@ export async function getStarredRepos() {
 
       // Prevent secondary rate limiting by ensuring a fixed delay
       await setTimeout(delay);
-      delay = 1000; // After the first request, reduce the delay to 1 second
     } catch (error) {
       console.error("GitHub API error:", error);
 
@@ -128,8 +127,6 @@ export async function getStarredRepos() {
       if (error.data?.message?.includes("secondary rate limit")) {
         console.warn("Hit secondary rate limit. Pausing for 60 seconds...");
         await setTimeout(60000); // Wait 1 minute before retrying
-        // backoff delay up to 60 sec
-        delay = Math.min(delay * 2, 60000);
       } else {
         throw error;
       }
