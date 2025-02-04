@@ -1,19 +1,19 @@
-import Link from 'next/link';
-import dayjs from 'lib/dayjs';
-import { proxyCache } from 'lib/cache';
-import { getUserPublicBlogPosts } from 'lib/devto';
-import { baseMetadata, openGraphMetadata, twitterMetadata } from 'lib/metadata';
+import { proxyCache } from "lib/cache";
+import dayjs from "lib/dayjs";
+import { getUserPublicBlogPosts } from "lib/devto";
+import { baseMetadata, openGraphMetadata, twitterMetadata } from "lib/metadata";
+import Link from "next/link";
 
 export const metadata = {
-  ...baseMetadata({ url: '/blog' }),
-  ...twitterMetadata({ url: '/blog' }),
-  ...openGraphMetadata({ url: '/blog' }),
+  ...baseMetadata({ url: "/blog" }),
+  ...twitterMetadata({ url: "/blog" }),
+  ...openGraphMetadata({ url: "/blog" }),
 };
 
 async function getData() {
   const posts = await proxyCache(
-    'devto_blog_posts',
-    getUserPublicBlogPosts.bind(null, 'scdev')
+    "devto_blog_posts",
+    getUserPublicBlogPosts.bind(null, "scdev"),
   );
 
   const parsed = posts.map((p) => {
