@@ -115,6 +115,10 @@ export type StarredRepoResponse = {
       nodes: StarredRepo[];
     };
   };
+  rateLimit: {
+    remaining: number;
+    resetAt: number;
+  };
 };
 export type StarredRepo = {
   nodes: {
@@ -146,6 +150,10 @@ export const USER_STARS_QUERY = /* GraphQL */ `
           }
         }
       }
+    }
+    rateLimit {
+      remaining
+      resetAt
     }
   }
 `;

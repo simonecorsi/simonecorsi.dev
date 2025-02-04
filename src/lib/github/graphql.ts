@@ -1,39 +1,40 @@
-import { graphql as Graphql } from '@octokit/graphql';
-import dayjs from 'dayjs';
-import got from 'got';
+import { graphql as Graphql } from "@octokit/graphql";
+import dayjs from "dayjs";
+import got from "got";
 
-import relativeTime from 'dayjs/plugin/relativeTime';
+import { setTimeout } from "node:timers/promises";
+import relativeTime from "dayjs/plugin/relativeTime";
+import config from "lib/config";
 import {
+  AVATAR_QUERY,
+  type IAvatar,
+  type IRepository,
+  type IUserDetail,
+  type ReadmeResponse,
+  type RepositoriesResponse,
+  type StarredRepo,
+  type StarredRepoResponse,
   USER_DETAIL_QUERY,
+  USER_README_QUERY,
   USER_REPOSITORIES_QUERY,
   USER_STARS_QUERY,
-  IUserDetail,
-  RepositoriesResponse,
-  IRepository,
-  AVATAR_QUERY,
-  IAvatar,
-  StarredRepoResponse,
-  StarredRepo,
-  ReadmeResponse,
-  USER_README_QUERY,
-} from './queries';
-import config from 'lib/config';
+} from "./queries";
 
 dayjs.extend(relativeTime);
 
 export const graphql = Graphql.defaults({
   headers: {
-    authorization: `token ` + process.env.GH_APIKEY,
+    authorization: `token ${process.env.GH_APIKEY}`,
   },
 });
 
 function filterRepositories(node: IRepository): boolean {
   const isOldAndUgly =
     node.stargazerCount < 5 &&
-    dayjs(node.createdAt).isBefore(dayjs().subtract(2, 'years'));
+    dayjs(node.createdAt).isBefore(dayjs().subtract(2, "years"));
 
   return (
-    !isOldAndUgly && node.id !== '315016385' && !node.name.match('simonecorsi')
+    !isOldAndUgly && node.id !== "315016385" && !node.name.match("simonecorsi")
   );
 }
 
@@ -62,31 +63,54 @@ export const getBase64Avatar = async (): Promise<string> => {
 
   if (viewer.avatarUrl) {
     const { headers, rawBody } = await got.get(viewer.avatarUrl);
-    return `data:${headers['content-type']};base64,${Buffer.from(
-      rawBody
-    ).toString('base64')}`;
+    return `data:${headers["content-type"]};base64,${Buffer.from(
+      rawBody,
+    ).toString("base64")}`;
   }
 
-  return '';
+  return "";
 };
 
 export async function getStarredRepos() {
-  let hasNextPage;
-  let cursor = '';
+  let hasNextPage = true;
+  let cursor = "";
   let dataset: StarredRepo[] = [];
-  do {
-    const {
-      viewer: {
-        starredRepositories: { pageInfo, nodes },
-      },
-    } = await graphql<StarredRepoResponse>(USER_STARS_QUERY, {
-      after: cursor,
-    });
-    hasNextPage = pageInfo.hasNextPage;
-    cursor = pageInfo.endCursor;
-    dataset = dataset.concat(nodes);
-    if (process.env.NODE_ENV !== 'production') break;
-  } while (hasNextPage);
+  const delay = 1000; // Start with 5 seconds
+
+  while (hasNextPage) {
+    try {
+      const {
+        viewer: { starredRepositories },
+        rateLimit,
+      } = await graphql<StarredRepoResponse>(USER_STARS_QUERY, {
+        after: cursor,
+      });
+
+      dataset = dataset.concat(starredRepositories.nodes);
+      hasNextPage = !!starredRepositories.pageInfo.hasNextPage;
+      cursor = starredRepositories.pageInfo.endCursor;
+
+      console.log(
+        `Fetched ${dataset.length} stars. Remaining rate limit: ${rateLimit.remaining}`,
+      );
+
+      if (process.env.NODE_ENV !== "production") break;
+
+      // Prevent secondary rate limiting by ensuring a fixed delay
+      await setTimeout(delay);
+    } catch (error) {
+      console.error("GitHub API error:", error);
+
+      // Check if it's a secondary rate limit error
+      if (error.data?.message?.includes("secondary rate limit")) {
+        console.warn("Hit secondary rate limit. Pausing for 60 seconds...");
+        await setTimeout(60000); // Wait 1 minute before retrying
+      } else {
+        throw error;
+      }
+    }
+  }
+
   return dataset;
 }
 
