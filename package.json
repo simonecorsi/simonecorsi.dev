@@ -11,7 +11,7 @@
     "export": "NODE_ENV=production next build",
     "postexport": "next-sitemap",
     "push": "git fetch && git rebase origin/master && git push origin master",
-    "prepare": "node prepare.js || echo 'Skipping prepare'"
+    "prepare": "node prepare.mjs || echo 'Skipping prepare'"
   },
   "dependencies": {
     "@octokit/graphql": "^7.0.1",
@@ -28,6 +28,7 @@
     "react-toggle-dark-mode": "^1.1.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@commitlint/cli": "^17.8.0",
     "@commitlint/config-conventional": "^17.6.6",
     "@next/bundle-analyzer": "^13.5.5",
@@ -35,16 +36,8 @@
     "@svgr/webpack": "^8.0.1",
     "@types/node": "^20.4.2",
     "@types/react": "^18.2.15",
-    "@typescript-eslint/parser": "^6.7.5",
-    "eslint": "^8.45.0",
-    "eslint-config-next": "^13.4.10",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "husky": "^8.0.3",
-    "is-ci": "^3.0.1",
-    "lint-staged": "^13.2.3",
+    "lefthook": "^1.10.10",
     "markdown-toc": "^1.2.0",
-    "prettier": "^3.0.0",
     "sass": "^1.63.6",
     "semantic-release": "^21.0.7",
     "typescript": "^5.1.6"
