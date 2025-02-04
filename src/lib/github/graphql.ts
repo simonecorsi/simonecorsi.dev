@@ -39,18 +39,40 @@ function filterRepositories(node: IRepository): boolean {
 }
 
 export async function getUserRepositories() {
-  const {
-    viewer: {
-      repositories: { nodes },
-    },
-  } = await graphql<RepositoriesResponse>(USER_REPOSITORIES_QUERY);
+  while (true) {
+    try {
+      const {
+        viewer: { repositories },
+        rateLimit,
+      } = await graphql<RepositoriesResponse>(USER_REPOSITORIES_QUERY);
 
-  const repositories = nodes.filter(filterRepositories).map((node) => ({
-    ...node,
-    updatedAt: dayjs(node.updatedAt).fromNow(),
-  }));
+      console.log(`Remaining rate limit: ${rateLimit.remaining}`);
 
-  return repositories;
+      if (rateLimit.remaining < 10) {
+        const resetTime = new Date(rateLimit.resetAt).getTime();
+        const waitTime = resetTime - Date.now();
+        console.warn(
+          `Rate limit low! Waiting ${Math.ceil(waitTime / 1000)}s...`,
+        );
+        await setTimeout(waitTime);
+        continue; // Retry after waiting
+      }
+
+      return repositories.nodes.filter(filterRepositories).map((node) => ({
+        ...node,
+        updatedAt: dayjs(node.updatedAt).fromNow(),
+      }));
+    } catch (error) {
+      console.error("GitHub API error:", error);
+
+      if (error.data?.message?.includes("secondary rate limit")) {
+        console.warn("Hit secondary rate limit. Pausing for 60 seconds...");
+        await setTimeout(60000); // Wait 1 minute before retrying
+      } else {
+        throw error;
+      }
+    }
+  }
 }
 
 export async function getUserDetails() {

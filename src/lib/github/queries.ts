@@ -58,10 +58,18 @@ export type IRepository = {
 
 export type RepositoriesResponse = {
   viewer: { repositories: { nodes: IRepository[] } };
+  rateLimit: {
+    remaining: number;
+    resetAt: number;
+  };
 };
 
 export const USER_REPOSITORIES_QUERY = /* GraphQL */ `
   {
+    rateLimit {
+      remaining
+      resetAt
+    }
     viewer {
       repositories(
         orderBy: { field: STARGAZERS, direction: DESC }
