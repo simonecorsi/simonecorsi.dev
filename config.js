@@ -24,7 +24,7 @@ const Configs = {
     { keyword: 'Typescript' },
     { keyword: 'Golang' },
     { keyword: 'Consulenza' },
-    { keyword: 'Consultat' },
+    { keyword: 'Consultant' },
     { keyword: 'Roma' },
     { keyword: 'Italia' },
   ],
