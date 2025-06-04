@@ -16,14 +16,14 @@ export const twitterMetadata = ({
   title?: string;
   description?: string;
   url: string;
-}) => ({
-  'og:site_name': Configs.site_title,
-  'og:url': Configs.base_url + url,
-  'og:title': title ? [title, Configs.site_title].join(' | ') : '',
-  'og:description': description ? description : Configs.site_descriptio,
-  'og:image': Configs.base_url + '/og_image.png',
-  'og:type': 'article',
-});
+  }) => ({
+    'og:site_name': Configs.site_title,
+    'og:url': Configs.base_url + url,
+    'og:title': title ? [title, Configs.site_title].join(' | ') : '',
+    'og:description': description ? description : Configs.site_description,
+    'og:image': Configs.base_url + '/og_image.png',
+    'og:type': 'article',
+  });
 
 export const openGraphMetadata = ({
   title,
