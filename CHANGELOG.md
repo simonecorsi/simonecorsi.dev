@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/simonecorsi/simonecorsi.dev/compare/v1.1.0...v1.1.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* filter starred repo per last pushedAt ([70df226](https://github.com/simonecorsi/simonecorsi.dev/commit/70df226e0d44fcf2a8726af9d5702baa1252be43))
+
 # [1.1.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v1.0.0...v1.1.0) (2025-08-08)
 
 
