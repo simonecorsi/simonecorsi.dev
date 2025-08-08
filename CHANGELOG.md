@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/simonecorsi/simonecorsi.dev/compare/v1.1.1...v1.1.2) (2025-08-08)
+
+
+### Bug Fixes
+
+* spacing ([8b015a4](https://github.com/simonecorsi/simonecorsi.dev/commit/8b015a401a0e949bd4d5a577aced48fdd334c1d0))
+
 ## [1.1.1](https://github.com/simonecorsi/simonecorsi.dev/compare/v1.1.0...v1.1.1) (2025-08-08)
 
 
