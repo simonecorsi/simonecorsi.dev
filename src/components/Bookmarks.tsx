@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import colors from 'language-colors';
+import colors from "language-colors";
+import { useEffect, useState } from "react";
 
 export default function Bookmarks({ languages, data }) {
   const [useLang, setLang] = useState(null);
@@ -12,36 +12,40 @@ export default function Bookmarks({ languages, data }) {
       !useLang
         ? data
         : data.filter((r) =>
-            r?.primaryLanguage?.name.match(new RegExp(useLang, 'i'))
-          )
+            r?.primaryLanguage?.name.match(new RegExp(useLang, "i")),
+          ),
     );
   }, [data, useLang]);
 
   return (
     <div className="content">
-      <h1>📚 {useLang || ''} Bookmarks</h1>
+      <h1>📚 {useLang || ""} Bookmarks</h1>
       <p>
-        This is a collection of all the repositories I&apos;ve starred over the
-        time! The list is automatically updated every night! If you would like
-        to have your personal list you can use my
+        Welcome to my collection of starred repositories! 🚀
+        <br />
+        After a decade of exploring, this list has grown massive—so here you'll
+        only find projects that have been active in the last 2 years.
+        <br />
+        Want to build your own personalized list? Check out my
         <a
           href="https://github.com/marketplace/actions/my-awesome-list"
           target="_blank"
           rel="noreferrer"
         >
-          github action
+          GitHub Action
         </a>
-        !
+        and start building your collection!
       </p>
       <h4 style={{ marginBottom: 0 }}>Filter by language:</h4>
       <div>
         <span
           style={{
             marginRight: 5,
-            fontWeight: useLang === null ? 'bold' : 'lighter',
+            fontWeight: useLang === null ? "bold" : "lighter",
           }}
         >
-          <a href={`#all`} onClick={() => setLang(null)}>
+          {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+          <a href={"#all"} onClick={() => setLang(null)}>
             All
           </a>
         </span>
@@ -50,14 +54,14 @@ export default function Bookmarks({ languages, data }) {
             key={l}
             style={{
               marginRight: 5,
-              fontWeight: useLang === l ? 'bold' : 'lighter',
+              fontWeight: useLang === l ? "bold" : "lighter",
             }}
           >
             <a
               href={`#${l}`}
               onClick={() => setLang(l)}
               style={{
-                color: useLang === l ? colors[l.toLowerCase()] : 'inherit',
+                color: useLang === l ? colors[l.toLowerCase()] : "inherit",
               }}
             >
               {l}

@@ -134,6 +134,7 @@ export type StarredRepo = {
     nameWithOwner: string;
     description: string;
     url: string;
+    pushedAt: string | Date;
     primaryLanguage: {
       name: string;
     };
@@ -156,6 +157,7 @@ export const USER_STARS_QUERY = /* GraphQL */ `
           primaryLanguage {
             name
           }
+          pushedAt
         }
       }
     }
