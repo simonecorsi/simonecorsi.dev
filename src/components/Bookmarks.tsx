@@ -23,10 +23,11 @@ export default function Bookmarks({ languages, data }) {
       <p>
         Welcome to my collection of starred repositories! 🚀
         <br />
-        After a decade of exploring, this list has grown massive—so here you'll
+        After a decade of exploring, this list has grown massive, so here you'll
         only find projects that have been active in the last 2 years.
         <br />
-        Want to build your own personalized list? Check out my
+        <br />
+        Want to build your own personalized list? Check out my&nbsp;
         <a
           href="https://github.com/marketplace/actions/my-awesome-list"
           target="_blank"
@@ -34,7 +35,7 @@ export default function Bookmarks({ languages, data }) {
         >
           GitHub Action
         </a>
-        and start building your collection!
+        &nbsp;and start building your collection!
       </p>
       <h4 style={{ marginBottom: 0 }}>Filter by language:</h4>
       <div>
