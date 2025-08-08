@@ -1,3 +1,18 @@
+# [1.1.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v1.0.0...v1.1.0) (2025-08-08)
+
+
+### Bug Fixes
+
+* correct consultant keyword ([327b4ff](https://github.com/simonecorsi/simonecorsi.dev/commit/327b4ffd97ee8bacd1ec79570d2e85c818957c29))
+* randoms ([c7c7635](https://github.com/simonecorsi/simonecorsi.dev/commit/c7c7635d7bd0cdadfd0751f67b709ba854dba35f))
+* remove ; ([944b0bf](https://github.com/simonecorsi/simonecorsi.dev/commit/944b0bf7f75758e89d80294a1f27bb5af6fe8664))
+
+
+### Features
+
+* blog ([fb5bdef](https://github.com/simonecorsi/simonecorsi.dev/commit/fb5bdef0916063a5c793176bc895e542126169af))
+* **blog:** next-13 ([b59ccd4](https://github.com/simonecorsi/simonecorsi.dev/commit/b59ccd42e05b84dd54f27372594a9380e5c76979))
+
 # [1.0.0](https://github.com/simonecorsi/simonecorsi.dev/compare/v0.7.2...v1.0.0) (2023-08-02)
 
 
