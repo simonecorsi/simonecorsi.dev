@@ -4,3 +4,48 @@
 body {
   @apply transition-colors duration-500 min-h-screen;
 }
+
+/* Premium styling for About page injected HTML */
+.prose-about {
+  @apply leading-relaxed;
+}
+
+.prose-about :where(h2) {
+  @apply text-2xl lg:text-3xl font-bold mt-12 mb-6 flex items-center gap-3 border-b border-base-content/10 pb-2;
+}
+
+.prose-about :where(h2) :where(img) {
+  @apply h-[1.2em] w-auto m-0 align-baseline inline-block;
+}
+
+.prose-about :where(p) {
+  @apply mb-6 text-base-content/80;
+}
+
+.prose-about :where(strong) {
+  @apply text-base-content font-semibold underline decoration-primary/30 decoration-2 underline-offset-4;
+}
+
+.prose-about :where(ul) {
+  @apply list-none p-0 space-y-3;
+}
+
+.prose-about :where(li) {
+  @apply flex items-baseline gap-3 before:content-['▹'] before:text-primary before:font-bold;
+}
+
+.prose-about :where(p) :where(img) {
+  @apply m-1 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 inline-block align-middle cursor-crosshair h-10 w-auto;
+}
+
+.prose-about :where(a) {
+  @apply link link-primary no-underline font-bold hover:underline decoration-2 underline-offset-4;
+}
+
+/* Specific fix for the waving hand to make it feel natural */
+.prose-about :where(h2[id="hi-there-im-simone-"]) :where(img) {
+  @apply h-[1.5em] animate-bounce;
+  animation-duration: 2s;
+}
+
+
