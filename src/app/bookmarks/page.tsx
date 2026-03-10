@@ -2,10 +2,13 @@ import Bookmarks from "components/Bookmarks";
 import dayjs from "dayjs";
 import { proxyCache } from "lib/cache";
 import { getStarredRepos } from "lib/github/graphql";
-import { baseMetadata, openGraphMetadata, twitterMetadata } from "lib/metadata";
+import type { StarredRepo } from "lib/github/queries";
+import { getMetadata } from "lib/metadata";
+
+export const metadata = getMetadata("/bookmarks");
 
 async function getData() {
-  const body = await proxyCache("stars", getStarredRepos);
+  const body = await proxyCache<StarredRepo[]>("stars", getStarredRepos);
 
   const starred = body.filter((r) =>
     dayjs(r.pushedAt).isAfter(dayjs().subtract(2, "years")),
@@ -20,12 +23,6 @@ async function getData() {
     data: starred,
   };
 }
-
-export const metadata = {
-  ...baseMetadata({ url: "/bookmarks" }),
-  ...twitterMetadata({ url: "/bookmarks" }),
-  ...openGraphMetadata({ url: "/bookmarks" }),
-};
 
 export default async function BookmarkPage() {
   const { languages, data } = await getData();

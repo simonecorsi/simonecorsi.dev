@@ -1,8 +1,8 @@
-import type { IRepository } from 'lib/github/queries';
+import type { IRepository } from "lib/github/queries";
 
 const COLORS_URL =
-  'https://raw.githubusercontent.com/ozh/github-colors/master/colors.json';
-let COLORS;
+  "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json";
+let COLORS: Record<string, { color: string; url: string }> | undefined;
 
 export async function Repository({
   name,
@@ -26,35 +26,39 @@ export async function Repository({
   }
 
   return (
-    <div className="repository-card" key={name}>
-      <a href={url} target="_blank" rel="noreferrer">
-        <h3 className="name">
-          {name}
-          {isArchived ? <span className="pill archived">archived</span> : ''}
-        </h3>
-        <div className="desc">{description}</div>
-      </a>
+    <div className="card bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors duration-300">
+      <div className="card-body p-6 gap-4">
+        <div className="flex justify-between items-start">
+          <h3 className="card-title text-xl font-bold">
+            <a
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              className="link link-hover"
+            >
+              {name}
+            </a>
+          </h3>
+          {isArchived && (
+            <div className="badge badge-warning badge-outline">Archived</div>
+          )}
+        </div>
 
-      <div className="info-list">
-        {!!stargazerCount && (
-          <span className="starcount">☆ {stargazerCount}</span>
-        )}
+        <p className="text-sm opacity-60 line-clamp-2">{description}</p>
 
-        {!!language && (
-          <span className="lang-wrp" key={language}>
-            <span
-              className="dot"
-              style={{
-                background: COLORS?.[language]?.color || '#333',
-              }}
-            ></span>
-            <span className="lang">{language}</span>
-          </span>
-        )}
-
-        {license && <span className="license">{license}</span>}
-
-        {updatedAt && <span className="updatedAt"> Updated {updatedAt}</span>}
+        <div className="card-actions justify-start items-center gap-4 text-xs font-semibold opacity-70">
+          {!!stargazerCount && <span>★ {stargazerCount}</span>}
+          {!!language && (
+            <div className="flex items-center gap-1.5">
+              <span
+                className="w-2 h-2 rounded-full"
+                style={{ background: COLORS?.[language]?.color }}
+              />
+              <span>{language}</span>
+            </div>
+          )}
+          {license && <span className="uppercase">{license}</span>}
+        </div>
       </div>
     </div>
   );

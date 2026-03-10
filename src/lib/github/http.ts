@@ -1,7 +1,7 @@
-import got from 'got';
+import got from "got";
 
 export const githubApi = got.extend({
-  prefixUrl: 'https://api.github.com/',
+  prefixUrl: "https://api.github.com/",
   headers: {
     Authorization: `token ${process.env.GH_APIKEY}`,
   },

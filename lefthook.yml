@@ -1,6 +1,7 @@
 # lefthook.yml
 pre-commit:
-  skip: CI
+  skip:
+    - ci
   commands:
     lint:
       glob: '**/*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}'
@@ -15,6 +16,8 @@ pre-commit:
         done
 
 commit-msg:
+  skip:
+    - ci
   commands:
     "lint commit message":
       run: npx --no -- commitlint --edit "$1"

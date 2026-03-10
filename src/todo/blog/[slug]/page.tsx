@@ -1,16 +1,19 @@
 import { proxyCache } from "lib/cache";
-import { getSinglePosts, getUserPublicBlogPosts } from "lib/devto";
-import { baseMetadata, openGraphMetadata, twitterMetadata } from "lib/metadata";
+import {
+  type DevToPost,
+  getSinglePosts,
+  getUserPublicBlogPosts,
+} from "lib/devto";
+import { getMetadata } from "lib/metadata";
 import { marked } from "marked";
 
-export const metadata = {
-  ...baseMetadata({ url: "/blog" }),
-  ...twitterMetadata({ url: "/blog" }),
-  ...openGraphMetadata({ url: "/blog" }),
-};
+export const metadata = getMetadata("/blog");
 
 export async function generateStaticParams() {
-  const posts = await proxyCache("devto_blog_posts", getUserPublicBlogPosts);
+  const posts = await proxyCache<DevToPost[]>(
+    "devto_blog_posts",
+    getUserPublicBlogPosts,
+  );
   return posts?.map(({ slug }) => ({
     slug,
     fallback: false,
@@ -18,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 async function getData(slug) {
-  const post = await proxyCache(
+  const post = await proxyCache<DevToPost>(
     ({ id }) => `devto_blog_posts:${id}`,
     getSinglePosts.bind(null, "scdev", slug),
   );
@@ -46,7 +49,7 @@ export default async function BlogPost({ params: { slug } }) {
         )}
 
         <div
-          className="post-body"
+          className="post-body prose prose-lg dark:prose-invert max-w-none"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
           dangerouslySetInnerHTML={{ __html: marked(post.body_markdown) }}
         />

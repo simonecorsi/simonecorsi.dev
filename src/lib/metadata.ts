@@ -1,43 +1,40 @@
-import Configs from '../../config';
+import type { Metadata } from "next";
+import Configs from "../../config";
 
-export const baseMetadata = ({ url }) => ({
-  title: Configs.site_title,
-  description: Configs.site_description,
-  keywords: Configs.site_keywords.map((it) => it.keyword).join(','),
-  author: 'Simone Corsi',
-  canonical: Configs.base_url + url,
-});
+export const getMetadata = (url = "/"): Metadata => {
+  const fullUrl = `${Configs.base_url}${url}`;
+  const title = Configs.site_title;
+  const description = Configs.site_description;
+  const keywords = Configs.site_keywords.map((it) => it.keyword).join(",");
 
-export const twitterMetadata = ({
-  title,
-  description,
-  url,
-}: {
-  title?: string;
-  description?: string;
-  url: string;
-  }) => ({
-    'og:site_name': Configs.site_title,
-    'og:url': Configs.base_url + url,
-    'og:title': title ? [title, Configs.site_title].join(' | ') : '',
-    'og:description': description ? description : Configs.site_description,
-    'og:image': Configs.base_url + '/og_image.png',
-    'og:type': 'article',
-  });
-
-export const openGraphMetadata = ({
-  title,
-  description,
-  url,
-}: {
-  title?: string;
-  description?: string;
-  url: string;
-}) => ({
-  'og:site_name': Configs.site_title,
-  'og:url': Configs.base_url + url,
-  'og:title': title ? [title, Configs.site_title].join(' | ') : '',
-  'og:description': description ? description : Configs.site_description,
-  'og:image': Configs.base_url + '/og_image.png',
-  'og:type': 'article',
-});
+  return {
+    title,
+    description,
+    keywords,
+    authors: [{ name: "Simone Corsi" }],
+    alternates: {
+      canonical: fullUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: fullUrl,
+      siteName: title,
+      images: [
+        {
+          url: `${Configs.base_url}/og_image.png`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      creator: Configs.twitter_account,
+      images: [`${Configs.base_url}/og_image.png`],
+    },
+  };
+};

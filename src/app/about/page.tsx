@@ -1,23 +1,23 @@
-import { marked } from 'marked';
-import { getPersonalBioReadme } from 'lib/github/graphql';
-import { baseMetadata, openGraphMetadata, twitterMetadata } from 'lib/metadata';
+import { getPersonalBioReadme } from "lib/github/graphql";
+import { getMetadata } from "lib/metadata";
+import { marked } from "marked";
+
+export const metadata = getMetadata("/about");
 
 async function getData() {
   const body = await getPersonalBioReadme();
   return { data: marked(body) };
 }
 
-export const metadata = {
-  ...baseMetadata({ url: '/about' }),
-  ...twitterMetadata({ url: '/about' }),
-  ...openGraphMetadata({ url: '/about' }),
-};
-
 export default async function AboutPage() {
   const { data } = await getData();
   return (
-    <div className="page-container">
-      <div className="content" dangerouslySetInnerHTML={{ __html: data }} />
+    <div className="min-h-screen py-20 px-8 flex justify-center">
+      <div
+        className="max-w-3xl w-full prose prose-lg lg:prose-xl prose-slate dark:prose-invert"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: Needed to render bio markdown
+        dangerouslySetInnerHTML={{ __html: data }}
+      />
     </div>
   );
 }

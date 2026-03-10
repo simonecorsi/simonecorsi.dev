@@ -1,14 +1,16 @@
+export type IUser = {
+  id: string;
+  login: string;
+  name: string;
+  avatarUrl: string;
+  bio: string;
+  company: string;
+  companyHTML: string;
+  twitterUsername: string;
+};
+
 export type IUserDetail = {
-  viewer: {
-    id: string;
-    login: string;
-    name: string;
-    avatarUrl: string;
-    bio: string;
-    company: string;
-    companyHTML: string;
-    twitterUsername: string;
-  };
+  viewer: IUser;
 };
 
 export const USER_DETAIL_QUERY = /* GraphQL */ `
@@ -129,15 +131,13 @@ export type StarredRepoResponse = {
   };
 };
 export type StarredRepo = {
-  nodes: {
-    id: string;
-    nameWithOwner: string;
-    description: string;
-    url: string;
-    pushedAt: string | Date;
-    primaryLanguage: {
-      name: string;
-    };
+  id: string;
+  nameWithOwner: string;
+  description: string;
+  url: string;
+  pushedAt: string | Date;
+  primaryLanguage: {
+    name: string;
   };
 };
 export const USER_STARS_QUERY = /* GraphQL */ `
