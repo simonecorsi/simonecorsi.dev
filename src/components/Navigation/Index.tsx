@@ -49,7 +49,7 @@ function MenuItem({
       <Link
         href={route.path}
         className={`text-xl lg:text-2xl transition-all duration-300 hover:opacity-100 ${
-          active ? "font-bold opacity-100" : "opacity-40"
+          active ? "font-bold opacity-100 text-primary" : "opacity-40"
         }`}
         {...(route.blank ? { target: "_blank" } : {})}
       >

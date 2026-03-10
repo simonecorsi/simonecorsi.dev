@@ -114,60 +114,6 @@ export const USER_REPOSITORIES_QUERY = /* GraphQL */ `
   }
 `;
 
-export type StarredRepoResponse = {
-  viewer: {
-    starredRepositories: {
-      pageInfo: {
-        endCursor: string;
-        hasNextPage: string;
-      };
-      totalCount: number;
-      nodes: StarredRepo[];
-    };
-  };
-  rateLimit: {
-    remaining: number;
-    resetAt: number;
-  };
-};
-export type StarredRepo = {
-  id: string;
-  nameWithOwner: string;
-  description: string;
-  url: string;
-  pushedAt: string | Date;
-  primaryLanguage: {
-    name: string;
-  };
-};
-export const USER_STARS_QUERY = /* GraphQL */ `
-  query Star($after: String = "") {
-    viewer {
-      starredRepositories(after: $after, first: 100) {
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-        totalCount
-        nodes {
-          id
-          nameWithOwner
-          description
-          url
-          primaryLanguage {
-            name
-          }
-          pushedAt
-        }
-      }
-    }
-    rateLimit {
-      remaining
-      resetAt
-    }
-  }
-`;
-
 export type IAvatar = {
   viewer: {
     avatarUrl?: string;

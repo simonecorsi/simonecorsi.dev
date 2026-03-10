@@ -4,7 +4,7 @@ import { getUserRepositories } from "lib/github/graphql";
 import type { IRepository } from "lib/github/queries";
 import { getMetadata } from "lib/metadata";
 
-export const metadata = getMetadata("/projects");
+export const metadata = getMetadata("/open-source");
 
 async function getData() {
   const repositories = await proxyCache<IRepository[]>(
@@ -22,7 +22,7 @@ export default async function Repositories() {
       <div className="space-y-12">
         <header className="space-y-4">
           <h1 className="text-4xl lg:text-5xl font-bold flex items-center gap-4">
-            🏗️ Projects
+            🏗️ Open Source
           </h1>
           <p className="text-lg opacity-70 leading-relaxed max-w-3xl">
             A selection of my public open source projects on GitHub.

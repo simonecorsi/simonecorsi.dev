@@ -12,12 +12,9 @@ import {
   type IUserDetail,
   type ReadmeResponse,
   type RepositoriesResponse,
-  type StarredRepo,
-  type StarredRepoResponse,
   USER_DETAIL_QUERY,
   USER_README_QUERY,
   USER_REPOSITORIES_QUERY,
-  USER_STARS_QUERY,
 } from "./queries";
 
 dayjs.extend(relativeTime);
@@ -92,49 +89,6 @@ export const getBase64Avatar = async (): Promise<string> => {
 
   return "";
 };
-
-export async function getStarredRepos() {
-  let hasNextPage = true;
-  let cursor = "";
-  let dataset: StarredRepo[] = [];
-  const delay = 5000; // Start with 5 seconds
-
-  while (hasNextPage) {
-    try {
-      const {
-        viewer: { starredRepositories },
-        rateLimit,
-      } = await graphql<StarredRepoResponse>(USER_STARS_QUERY, {
-        after: cursor,
-      });
-
-      dataset = dataset.concat(starredRepositories.nodes);
-      hasNextPage = !!starredRepositories.pageInfo.hasNextPage;
-      cursor = starredRepositories.pageInfo.endCursor;
-
-      console.log(
-        `Fetched ${dataset.length} stars. Remaining rate limit: ${rateLimit.remaining}`,
-      );
-
-      if (process.env.NODE_ENV !== "production") break;
-
-      // Prevent secondary rate limiting by ensuring a fixed delay
-      await setTimeout(delay);
-    } catch (error) {
-      console.error("GitHub API error:", error);
-
-      // Check if it's a secondary rate limit error
-      if (error.message?.includes("secondary rate limit")) {
-        console.warn("Hit secondary rate limit. Pausing for 60 seconds...");
-        await setTimeout(60000); // Wait 1 minute before retrying
-      } else {
-        throw error;
-      }
-    }
-  }
-
-  return dataset;
-}
 
 export async function getPersonalBioReadme() {
   const {

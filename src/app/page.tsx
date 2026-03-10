@@ -25,7 +25,7 @@ export default async function Index() {
         {/* Profile Section */}
         <div className="space-y-6">
           <div className="relative inline-block group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000" />
+            <div className="absolute -inset-1 bg-primary rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000" />
             <div className="relative">
               <Image
                 src={avatar}
@@ -38,7 +38,7 @@ export default async function Index() {
           </div>
 
           <div className="space-y-2 px-4">
-            <h1 className="text-4xl lg:text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-base-content to-base-content/60">
+            <h1 className="text-4xl lg:text-6xl font-black tracking-tight text-base-content">
               {user.name}
             </h1>
             <h2 className="text-lg lg:text-xl font-medium opacity-60 leading-relaxed max-w-lg mx-auto italic">

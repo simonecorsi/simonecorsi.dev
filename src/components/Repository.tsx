@@ -34,7 +34,7 @@ export async function Repository({
               href={url}
               target="_blank"
               rel="noreferrer"
-              className="link link-hover"
+              className="link link-hover hover:text-primary transition-colors"
             >
               {name}
             </a>

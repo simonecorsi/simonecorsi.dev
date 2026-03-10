@@ -1,8 +1,16 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  /* biome-ignore lint/correctness/noUnknownProperty: Special DaisyUI v5 plugin syntax */
+  themes: light, dark;
+}
+
+@theme {
+  --color-primary: oklch(0.6 0.18 250); /* A vibrant, modern blue accent */
+  --color-primary-content: oklch(0.98 0.01 250);
+}
 
 body {
-  @apply transition-colors duration-500 min-h-screen;
+  @apply transition-colors duration-500 min-h-screen font-sans;
 }
 
 /* Premium styling for About page injected HTML */
@@ -44,8 +52,19 @@ body {
 
 /* Specific fix for the waving hand to make it feel natural */
 .prose-about :where(h2[id="hi-there-im-simone-"]) :where(img) {
-  @apply h-[1.5em] animate-bounce;
+  @apply h-[1.5em] animate-bounce ml-2;
   animation-duration: 2s;
 }
 
+/* Global link and button refinements */
+.link {
+  @apply transition-all duration-200;
+}
 
+.link-primary {
+  @apply decoration-primary/30 hover:decoration-primary;
+}
+
+.btn-primary {
+  @apply shadow-lg shadow-primary/20;
+}

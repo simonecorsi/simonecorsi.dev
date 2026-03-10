@@ -23,7 +23,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${base_url}/blog`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 1,
+      priority: 0.9,
+    },
+    {
+      url: `${base_url}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: `${base_url}/bookmarks`,
@@ -32,7 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     },
     {
-      url: `${base_url}/projects`,
+      url: `${base_url}/open-source`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.6,
