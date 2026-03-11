@@ -3,13 +3,16 @@
 import config from "lib/config";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type MenuItemType = (typeof config.routes)[number];
 
 const removeSlash = (str: string) => str.replace(/\//g, "");
-function isActivePath(path: string, currentPath: string) {
-  if (typeof path !== "string" || typeof currentPath !== "string") return false;
+function isActivePath(path: string, currentPath: string, currentHash: string) {
+  if (path.includes("#")) {
+    const hash = path.split("#")[1];
+    return currentHash === `#${hash}` || (hash === "home" && !currentHash);
+  }
   return removeSlash(path) === removeSlash(currentPath);
 }
 
@@ -48,6 +51,17 @@ function MenuItem({
     <li key={route.label}>
       <Link
         href={route.path}
+        onClick={(e) => {
+          if (route.path.startsWith("/#")) {
+            const id = route.path.replace("/#", "");
+            const element = document.getElementById(id);
+            if (element) {
+              e.preventDefault();
+              element.scrollIntoView({ behavior: "smooth" });
+              window.history.pushState(null, "", route.path);
+            }
+          }
+        }}
         className={`text-xl lg:text-2xl transition-all duration-300 hover:opacity-100 ${
           active ? "font-bold opacity-100 text-primary" : "opacity-40"
         }`}
@@ -62,7 +76,15 @@ function MenuItem({
 export default function Navigation() {
   const pathname = usePathname();
   const [open, setopen] = useState(false);
+  const [hash, setHash] = useState("");
   const { routes } = config;
+
+  useEffect(() => {
+    setHash(window.location.hash);
+    const handleHashChange = () => setHash(window.location.hash);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   return (
     <>
@@ -79,7 +101,7 @@ export default function Navigation() {
               <MenuItem
                 key={route.label}
                 route={route}
-                isActive={() => isActivePath(pathname || "", route.path)}
+                isActive={() => isActivePath(pathname || "", route.path, hash)}
               />
             ))}
         </ul>

@@ -9,6 +9,11 @@
   --color-primary-content: oklch(0.98 0.01 250);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
 body {
   @apply transition-colors duration-500 min-h-screen font-sans;
 }

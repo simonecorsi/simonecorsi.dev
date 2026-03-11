@@ -32,16 +32,10 @@ const Configs = {
   github_account: "simonecorsi",
   linkedin_account: "/in/simonecorsi",
   routes: [
-    { path: "/", label: "home", enabled: true },
+    { path: "/#home", label: "home", enabled: true },
     { path: "/blog/", label: "blog", enabled: false },
-    { path: "/about/", label: "about", enabled: true },
-    { path: "/open-source/", label: "open source", enabled: true },
-    // {
-    //   path: "https://www.linkedin.com/in/simonecorsi/",
-    //   label: "resume",
-    //   blank: true,
-    //   enabled: true,
-    // },
+    { path: "/#about", label: "about", enabled: true },
+    { path: "/#open-source", label: "open source", enabled: true },
   ],
 };
 
