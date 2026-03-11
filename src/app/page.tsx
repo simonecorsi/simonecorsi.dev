@@ -14,6 +14,8 @@ import GitHub from "../assets/github-alt.svg";
 import LinkedIn from "../assets/linkedin.svg";
 import config from "../lib/config";
 
+import ScrollIndicator from "components/ScrollIndicator";
+
 export const metadata = getMetadata("/");
 
 async function getData() {
@@ -41,9 +43,9 @@ export default async function Index() {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center p-8 transition-opacity duration-1000"
+        className="min-h-screen flex items-center justify-center p-8 pt-32 pb-40 transition-opacity duration-1000 relative"
       >
-        <div className="max-w-2xl w-full text-center space-y-12">
+        <div className="max-w-2xl w-full text-center space-y-4">
           {/* Profile Section */}
           <div className="space-y-6">
             <div className="relative inline-block group">
@@ -70,7 +72,7 @@ export default async function Index() {
           </div>
 
           {/* Social Links */}
-          <div className="flex gap-6 justify-center pt-4">
+          <div className="flex gap-6 justify-center">
             <a
               href={`https://github.com/${github_account}`}
               target="_blank"
@@ -91,18 +93,25 @@ export default async function Index() {
             </a>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <ScrollIndicator />
       </section>
 
       {/* About Section */}
       <section id="about" className="py-24 border-t border-base-content/5">
         <div className="max-w-3xl mx-auto">
-          <header className="mb-12">
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">
-              Leadership & Philosophy
+          <header className="mb-16">
+            <h2 className="text-xs font-black tracking-[0.3em] text-primary/60 uppercase mb-4">
+              My area of expertise
             </h2>
-            <h3 className="text-4xl lg:text-5xl font-black tracking-tight">
-              Biography
+            <h3 className="text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-6">
+              Engineering <br />
+              <span className="text-primary">Leadership.</span>
             </h3>
+            {/* <p className="text-xl opacity-60 max-w-xl leading-relaxed">
+              My approach to software engineering and 
+            </p> */}
           </header>
           <div
             className="prose prose-lg lg:prose-xl prose-slate dark:prose-invert prose-about max-w-none"
@@ -126,8 +135,7 @@ export default async function Index() {
               Open Source
             </h3>
             <p className="text-lg opacity-70 leading-relaxed max-w-3xl">
-              A selection of my public projects, including tools for developers
-              and experiments in software architecture.
+              A selection of my public projects
             </p>
           </header>
 

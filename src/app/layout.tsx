@@ -44,14 +44,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-base-100 text-base-content overflow-x-hidden">
-        <div id="app-container" className="flex">
-          <Navigation />
-          <div className="fixed top-7 right-8 z-50">
-            <DarkModeButton />
-          </div>
-          <main className="flex-1">{children}</main>
+      <body className="bg-base-100 text-base-content overflow-x-hidden relative">
+        <Navigation />
+        <div className="fixed top-8 right-6 z-50 hidden lg:block">
+          <DarkModeButton />
         </div>
+        <main className="min-h-screen">{children}</main>
       </body>
     </html>
   );
