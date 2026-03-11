@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/#about",
+      "permanent": true
+    },
+    {
+      "source": "/open-source",
+      "destination": "/#open-source",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/#open-source",
+      "permanent": true
+    },
+    {
+      "source": "/bookmarks",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
