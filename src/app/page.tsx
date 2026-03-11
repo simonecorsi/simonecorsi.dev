@@ -126,20 +126,20 @@ export default async function Index() {
         id="open-source"
         className="py-24 border-t border-base-content/5"
       >
-        <div className="space-y-12">
-          <header className="space-y-4">
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-4">
+        <div className="max-w-3xl mx-auto space-y-10">
+          <header>
+            <h2 className="text-xs font-black tracking-[0.3em] text-primary/60 uppercase mb-4">
               Building in Public
             </h2>
-            <h3 className="text-4xl lg:text-5xl font-black tracking-tight flex items-center gap-4">
+            <h3 className="text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-6">
               Open Source
             </h3>
-            <p className="text-lg opacity-70 leading-relaxed max-w-3xl">
+            <p className="text-xl opacity-60 leading-relaxed">
               A selection of my public projects
             </p>
           </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {repositories.map((node) => (
               <Repository {...node} key={node.id} />
             ))}
