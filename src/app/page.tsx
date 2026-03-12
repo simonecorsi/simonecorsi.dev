@@ -39,7 +39,7 @@ export default async function Index() {
   const { github_account, linkedin_account } = config;
 
   return (
-    <div className="flex flex-col w-full max-w-6xl mx-auto px-4 lg:px-8">
+    <div className="flex flex-col w-full max-w-6xl mx-auto px-8">
       {/* Hero Section */}
       <section
         id="home"
