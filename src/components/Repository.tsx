@@ -1,8 +1,6 @@
 import type { IRepository } from "lib/github/queries";
 
-const COLORS_URL =
-  "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json";
-let COLORS: Record<string, { color: string; url: string }> | undefined;
+import colors from "language-colors";
 
 export async function Repository({
   name,
@@ -16,14 +14,6 @@ export async function Repository({
 }: IRepository) {
   const language = primaryLanguage?.name;
   const license = licenseInfo?.nickname || licenseInfo?.name;
-
-  if (!COLORS) {
-    const res = await fetch(COLORS_URL);
-    if (!res.ok) {
-      throw new Error(`Cannot fetch colors from github at ${COLORS_URL}`);
-    }
-    COLORS = await res.json();
-  }
 
   return (
     <div className="card bg-base-200 border border-base-content/5 hover:bg-base-300 transition-colors duration-300">
@@ -52,7 +42,9 @@ export async function Repository({
             <div className="flex items-center gap-1.5">
               <span
                 className="w-2 h-2 rounded-full"
-                style={{ background: COLORS?.[language]?.color }}
+                style={{
+                  background: colors[language?.toLowerCase() || ""]?.color,
+                }}
               />
               <span>{language}</span>
             </div>

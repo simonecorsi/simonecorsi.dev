@@ -44,10 +44,15 @@
     "typescript": "^5.7.0"
   },
   "volta": {
-    "node": "22.18.0",
-    "npm": "11.5.2"
+    "node": "24.14.0",
+    "npm": "11.1.0"
   },
   "engines": {
-    "node": "22.x"
-  }
+    "node": "24.x"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ]
 }
