@@ -35,6 +35,9 @@ const Configs = {
     { path: "/#home", label: "home", enabled: true },
     { path: "/blog/", label: "blog", enabled: false },
     { path: "/#about", label: "about", enabled: true },
+    { path: "/#work-experience", label: "work experience", enabled: true },
+    { path: "/#education", label: "education", enabled: true },
+    { path: "/#ventures", label: "ventures", enabled: true },
     { path: "/#open-source", label: "open source", enabled: true },
   ],
 };

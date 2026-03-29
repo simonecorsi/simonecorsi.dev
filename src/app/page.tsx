@@ -14,7 +14,10 @@ import GitHub from "../assets/github-alt.svg";
 import LinkedIn from "../assets/linkedin.svg";
 import config from "../lib/config";
 
+import Education from "components/Education";
 import ScrollIndicator from "components/ScrollIndicator";
+import Ventures from "components/Ventures";
+import WorkExperience from "components/WorkExperience";
 
 export const metadata = getMetadata("/");
 
@@ -29,7 +32,7 @@ async function getData() {
   return {
     avatar,
     user,
-    bio: marked(bio),
+    bio: marked(bio.split(/#{1,}.*Toolbox/i)[0]),
     repositories,
   };
 }
@@ -65,7 +68,7 @@ export default async function Index() {
               <h1 className="text-4xl lg:text-7xl font-black tracking-tighter text-base-content">
                 {user.name}
               </h1>
-              <h2 className="text-xl lg:text-2xl font-medium opacity-60 leading-relaxed max-w-lg mx-auto italic">
+              <h2 className="text-xl lg:text-2xl font-medium opacity-60 leading-relaxed mx-auto italic lg:whitespace-nowrap">
                 {user.bio}
               </h2>
             </div>
@@ -102,7 +105,7 @@ export default async function Index() {
       <section id="about" className="py-24 border-t border-base-content/5">
         <div className="max-w-3xl mx-auto">
           <header className="mb-16">
-            <h2 className="text-xs font-black tracking-[0.3em] text-primary/60 uppercase mb-4">
+            <h2 className="text-xs font-black tracking-[0.3em] text-primary uppercase mb-4">
               My area of expertise
             </h2>
             <h3 className="text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-6">
@@ -121,6 +124,60 @@ export default async function Index() {
         </div>
       </section>
 
+      {/* Work Experience Section */}
+      <section
+        id="work-experience"
+        className="py-24 border-t border-base-content/5"
+      >
+        <div className="max-w-3xl mx-auto">
+          <header className="mb-16">
+            <h2 className="text-xs font-black tracking-[0.3em] text-primary uppercase mb-4">
+              My Professional Journey
+            </h2>
+            <h3 className="text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-6">
+              Work <br />
+              <span className="text-primary">Experience.</span>
+            </h3>
+          </header>
+
+          <WorkExperience />
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="py-24 border-t border-base-content/5">
+        <div className="max-w-3xl mx-auto">
+          <header className="mb-16">
+            <h2 className="text-xs font-black tracking-[0.3em] text-primary uppercase mb-4">
+              Building the core
+            </h2>
+            <h3 className="text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-6">
+              Academic <br />
+              <span className="text-primary">Background.</span>
+            </h3>
+          </header>
+
+          <Education />
+        </div>
+      </section>
+
+      {/* Ventures Section */}
+      <section id="ventures" className="py-24 border-t border-base-content/5">
+        <div className="max-w-3xl mx-auto">
+          <header className="mb-16">
+            <h2 className="text-xs font-black tracking-[0.3em] text-primary uppercase mb-4">
+              Beyond engineering
+            </h2>
+            <h3 className="text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-6">
+              Building <br />
+              <span className="text-primary">Ventures.</span>
+            </h3>
+          </header>
+
+          <Ventures />
+        </div>
+      </section>
+
       {/* Open Source Section */}
       <section
         id="open-source"
@@ -128,7 +185,7 @@ export default async function Index() {
       >
         <div className="max-w-3xl mx-auto space-y-10">
           <header>
-            <h2 className="text-xs font-black tracking-[0.3em] text-primary/60 uppercase mb-4">
+            <h2 className="text-xs font-black tracking-[0.3em] text-primary uppercase mb-4">
               Building in Public
             </h2>
             <h3 className="text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-6">
