@@ -15,7 +15,7 @@ const ventures: Venture[] = [
     role: "Founder & Director",
     period: "2025 — Present",
     description:
-      "Founded and leading a music production organization dedicated to the promotion of live shows in the capital. Currently managing a growing team of 6 professionals to deliver high-impact cultural events.",
+      "Founded and leading a music production organization dedicated to the production and promotion of live shows in the capital. Currently managing a growing team of 6 professionals",
   },
   {
     name: "Pank Rabbit",
